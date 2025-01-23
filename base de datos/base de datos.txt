@@ -1,0 +1,35 @@
+CREATE TABLE Comentarios (
+    ID INT IDENTITY(1,1) PRIMARY KEY,
+    Nombre VARCHAR(100),
+    Texto TEXT,
+    Puntuacion INT
+);
+
+CREATE TABLE Usuarios (
+    ID INT IDENTITY(1,1) PRIMARY KEY,
+    Nombre VARCHAR(100),
+    Correo VARCHAR(100),
+    Telefono VARCHAR(20),
+    Direccion VARCHAR(200)
+);
+
+CREATE TABLE Roles (
+    ID INT IDENTITY(1,1) PRIMARY KEY,
+    Tipo VARCHAR(50)
+);
+
+CREATE TABLE Productos (
+    ID INT IDENTITY(1,1) PRIMARY KEY,
+    Nombre VARCHAR(100),
+    Cantidad INT,
+    Procedencia VARCHAR(100),
+    Tipo VARCHAR(50)
+);
+
+CREATE TABLE Proveedores (
+    ID INT IDENTITY(1,1) PRIMARY KEY,
+    Nombre VARCHAR(100),
+    Cantidad INT,
+    Telefono VARCHAR(20),
+    Lugar VARCHAR(100)
+);
