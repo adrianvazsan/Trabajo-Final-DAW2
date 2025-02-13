@@ -6,48 +6,46 @@ use App\Models\UserModel; // Importamos el modelo de usuarios para interactuar c
 
 class AuthController extends BaseController
 {
-    /**
-     * Muestra el formulario de registro de usuario.
-     */
-    public function register()
-    {
-        return view('register'); // Carga y retorna la vista del formulario de registro.
+    
+    public function register() {
+        helper(['form']); // Carga el helper de formularios
+        return view("register"); // Carga y retorna la vista del formulario de registro
     }
 
     /**
-     * Procesa el registro de un nuevo usuario.
-     */
-    public function processRegister()
-    {
-        helper(['form', 'url']); // Carga los helpers necesarios para trabajar con formularios y URLs.
+    * Procesa el registro de un nuevo usuario.
+    */
 
-        // Configuración de las reglas de validación del formulario.
+    public function processRegister() {
+        helper(["form", "url"]); //Carga los helpers necesarios para trabajar con formularios y urls
+        
+        // Configuración de las reglas de validación del formulario
         $rules = [
-            'Nombre' => 'required|min_length[3]|max_length[50]', // El nombre es obligatorio y debe tener entre 3 y 50 caracteres.
-            'Correo' => 'required|valid_email|is_unique[users.email]', // El correo debe ser válido y único en la tabla `users`.
+            'name' => 'required|min_length[3]|max_length[50]', // El nombre es obligatorio y debe tener entre 3 y 50 caracteres.
+            'email' => 'required|valid_email|is_unique[users.email]', // El correo debe ser válido y único en la tabla `users`.
             'password' => 'required|min_length[6]', // La contraseña debe ser obligatoria y tener al menos 6 caracteres.
             'password_confirm' => 'required|matches[password]', // La confirmación de la contraseña debe coincidir con la contraseña.
         ];
 
-        // Si la validación falla, volvemos a mostrar el formulario con los errores.
+        // Si la validación falla, volvemos a mostrar el formulario con los errores
         if (!$this->validate($rules)) {
-            return view('register', [
-                'validation' => $this->validator, // Pasamos los errores de validación a la vista.
+            return view("register", [
+                "validation" => $this->validator, // Pasamos los errores de validación a la vista
             ]);
         }
-
-        // Si la validación pasa, procedemos a guardar el usuario en la base de datos.
+        
+        // Si la validación pasa, procedemos a guardar el usuario en la base de datos
         $userModel = new UserModel();
-        $userModel->save([
-            'Nombre' => $this->request->getPost('Nombre'), // Obtenemos el nombre del formulario.
-            'Correo' => $this->request->getPost('Correo'), // Obtenemos el correo del formulario.
+        $userModel->save( [
+            'nombre_usuario' => $this->request->getPost('name'), // Obtenemos el nombre del formulario.
+            'email' => $this->request->getPost('email'), // Obtenemos el correo del formulario.
             'password' => password_hash($this->request->getPost('password'), PASSWORD_DEFAULT), // Encriptamos la contraseña antes de guardarla.
+            'id_rol' => 2 // Forzamos que siempre sea "usuario"
         ]);
 
-        // Redirigimos al formulario de inicio de sesión con un mensaje de éxito.
-        return redirect()->to('/login')->with('success', 'Usuario registrado correctamente.');
+        // Redirigimos al formulario de inicio de sesión con un mensaje de éxito
+        return redirect()->to("/login")->with("success", "Usuario registrado correctamente.");
     }
-
     /**
      * Muestra el formulario de inicio de sesión.
      */

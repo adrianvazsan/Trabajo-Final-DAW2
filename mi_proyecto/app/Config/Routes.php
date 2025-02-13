@@ -20,6 +20,15 @@ $routes->post('users/save', 'UserController::saveUser'); // Crear usuario (POST)
 $routes->post('users/save/(:num)', 'UserController::saveUser/$1'); // Editar usuario (POST)
 $routes->get('users/delete/(:num)', 'UserController::delete/$1'); // Eliminar usuario
 
+// rutas login y registro
+$routes->get("login", "AuthController::login"); // Página de login
+$routes->post("login/process", "AuthController::processLogin"); //Procesar login
+$routes->get("register", "AuthController::register"); //Página de registro
+$routes->post("register/process", "AuthController::processRegister"); //Procesar registro
+$routes->get("logout", "AuthController::logout"); // Cerrar sesión
+$routes->get("dashboard", "AuthController::dashboard"); // Página de dashboard
+$routes->get("/", "Home::index"); // Página de graficos
+
 
 
 
