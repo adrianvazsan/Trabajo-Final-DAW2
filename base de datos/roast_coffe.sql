@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1:3306
--- Tiempo de generación: 23-01-2025 a las 11:55:33
+-- Tiempo de generación: 13-02-2025 a las 09:48:30
 -- Versión del servidor: 8.0.40
 -- Versión de PHP: 8.3.14
 
@@ -18,53 +18,40 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `roast coffe`
+-- Base de datos: `roast_coffe`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `comentarios`
+-- Estructura de tabla para la tabla `comments`
 --
 
-DROP TABLE IF EXISTS `comentarios`;
-CREATE TABLE IF NOT EXISTS `comentarios` (
-  `nombre` int NOT NULL,
-  `texto` int NOT NULL,
-  `puntuacion` int NOT NULL,
-  `ID` int NOT NULL,
-  PRIMARY KEY (`ID`)
+DROP TABLE IF EXISTS `comments`;
+CREATE TABLE IF NOT EXISTS `comments` (
+  `id` int NOT NULL,
+  `name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `text` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
+  `rating` int DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `producto`
+-- Estructura de tabla para la tabla `products`
 --
 
-DROP TABLE IF EXISTS `producto`;
-CREATE TABLE IF NOT EXISTS `producto` (
-  `nombre` varchar(20) NOT NULL,
-  `cantidad` int NOT NULL,
-  `procedencia` int NOT NULL,
-  `tipo` varchar(20) NOT NULL,
-  `ID` int NOT NULL,
-  PRIMARY KEY (`ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `proveedores`
---
-
-DROP TABLE IF EXISTS `proveedores`;
-CREATE TABLE IF NOT EXISTS `proveedores` (
-  `nombre` varchar(20) NOT NULL,
-  `cantidad` int NOT NULL,
-  `telefono` int NOT NULL,
-  `lugar` varchar(40) NOT NULL,
-  `ID` int NOT NULL
+DROP TABLE IF EXISTS `products`;
+CREATE TABLE IF NOT EXISTS `products` (
+  `id` int NOT NULL,
+  `product_name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `amount` int DEFAULT NULL,
+  `origin_product` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `type_product` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
@@ -75,26 +62,51 @@ CREATE TABLE IF NOT EXISTS `proveedores` (
 
 DROP TABLE IF EXISTS `roles`;
 CREATE TABLE IF NOT EXISTS `roles` (
-  `tipo` varchar(20) NOT NULL,
-  `ID` int NOT NULL,
-  PRIMARY KEY (`ID`)
+  `type` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `rol_id` int NOT NULL,
+  PRIMARY KEY (`rol_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `usuario`
+-- Estructura de tabla para la tabla `suppliers`
 --
 
-DROP TABLE IF EXISTS `usuario`;
-CREATE TABLE IF NOT EXISTS `usuario` (
-  `nombre` varchar(20) NOT NULL,
-  `correo` varchar(30) NOT NULL,
-  `telefono` int NOT NULL,
-  `direccion` varchar(40) NOT NULL,
-  `ID` int NOT NULL,
-  PRIMARY KEY (`ID`)
+DROP TABLE IF EXISTS `suppliers`;
+CREATE TABLE IF NOT EXISTS `suppliers` (
+  `supplier_name` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `amount` int NOT NULL,
+  `supplier_phone` int NOT NULL,
+  `supplier_origin` varchar(40) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `id` int NOT NULL,
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `users`
+--
+
+DROP TABLE IF EXISTS `users`;
+CREATE TABLE IF NOT EXISTS `users` (
+  `name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `email` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `number_phone` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `address` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `id` int NOT NULL AUTO_INCREMENT,
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `users`
+--
+
+INSERT INTO `users` (`name`, `email`, `number_phone`, `address`, `password`, `id`, `created_at`) VALUES
+('Adrian', 'adrian123@gmail.com', '255160428', 'calle capricornio', '1234', 1, '2025-02-13 09:14:22');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
