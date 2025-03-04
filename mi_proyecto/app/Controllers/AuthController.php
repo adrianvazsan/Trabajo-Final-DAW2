@@ -49,7 +49,7 @@ class AuthController extends BaseController
         ]);
 
         // Redirigimos al formulario de inicio de sesión con un mensaje de éxito.
-        return redirect()->to('/login')->with('success', 'Usuario registrado correctamente.');
+        return redirect()->to('/login')->with('success', 'User successfully registered.');
     }
 
     /**
@@ -99,17 +99,17 @@ class AuthController extends BaseController
             ]);
 
             if ($user['id_rol'] == 1) {
-                $session->setFlashdata('success', 'Bienvenido Administrador.');
+                $session->setFlashdata('success', 'Welcome Administrator.');
                 return redirect()->to('/users');
             } else if ($user['id_rol'] == 2) {
-                $session->setFlashdata('success', 'Inicio de sesión exitoso.');
+                $session->setFlashdata('success', 'Successful login.');
                 return redirect()->to('/users');
             }
             
         }
 
         // Si las credenciales son incorrectas, mostramos un mensaje de error.
-        return redirect()->to('login')->with('error', 'Correo o contraseña incorrectos.');
+        return redirect()->to('login')->with('error', 'Incorrect email or password.');
     }
 
     /**
@@ -121,6 +121,6 @@ class AuthController extends BaseController
         $session->destroy(); // Destruye todos los datos de la sesión.
 
         // Redirige al formulario de inicio de sesión con un mensaje de éxito.
-        return redirect()->to('/login')->with('success', 'Has cerrado sesión correctamente.');
+        return redirect()->to('/login')->with('success', 'You have successfully logged out.');
     }
 }

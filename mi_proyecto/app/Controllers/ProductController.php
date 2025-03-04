@@ -68,61 +68,70 @@ class ProductController extends BaseController
     
     public function saveProduct($id = null)
     {
-        if ($this->session->get('rol_id') != 1) {
-            return redirect()->to('/products')->with('error', 'No tienes permisos para realizar esta acción.');
-        }
-
+        $productModel = new ProductsModel();
         helper(['form', 'url']);
-
-        $data['product'] = $id ? $this->productModel->find($id) : null;
+        // Cargar datos del producto si es edición
+        $data['product'] = $id ? $productModel->find($id) : null;
 
         if ($this->request->getMethod() == 'POST') {
+
+            // Reglas de validación
             $validation = \Config\Services::validation();
             $validation->setRules([
-                'name' => 'required|min_length[3]|max_length[100]',
-                'description' => 'required',
-                'price' => 'required|numeric',
-                'stock' => 'required|integer',
+                'product_name' => 'required|min_length[3]|max_length[100]',
+                'amount' => 'required|numeric',
+                'origin_product' => 'required|min_length[3]|max_length[100]',
+                'type_product' => 'required|min_length[3]|max_length[50]',
             ]);
 
             if (!$validation->withRequest($this->request)->run()) {
+                // Mostrar errores de validación
                 $data['validation'] = $validation;
             } else {
+                // Preparar datos del formulario
                 $productData = [
-                    'name' => $this->request->getPost('name'),
-                    'description' => $this->request->getPost('description'),
-                    'price' => $this->request->getPost('price'),
-                    'stock' => $this->request->getPost('stock'),
+                    'product_name' => $this->request->getPost('product_name'),
+                    'amount' => $this->request->getPost('amount'),
+                    'origin_product' => $this->request->getPost('origin_product'),
+                    'type_product' => $this->request->getPost('type_product'),
                 ];
 
                 if ($id) {
-                    $this->productModel->update($id, $productData);
+                    // Actualizar producto existente
+                    $productModel->update($id, $productData);
                     $message = 'Producto actualizado correctamente.';
                 } else {
-                    $this->productModel->save($productData);
+                    // Crear nuevo producto
+                    $productModel->save($productData);
                     $message = 'Producto creado correctamente.';
                 }
 
+                // Redirigir al listado con un mensaje de éxito
                 return redirect()->to('/products')->with('success', $message);
             }
         }
+
+        // Cargar la vista del formulario (crear/editar)
         return view('product_form', $data);
     }
 
-
     public function delete($id)
     {
-        if ($this->session->get('rol_id') != 1) {
-            return redirect()->to('/products')->with('error', 'No tienes permisos para realizar esta acción.');
-        }
-
-        $product = $this->productModel->find($id);
-
-        if ($product) {
-            $this->productModel->delete($id);
-            return redirect()->to('/products')->with('success', 'Producto eliminado correctamente.');
+        $productModel = new ProductsModel();
+        
+        // Verificar si el ID es válido
+        if ($id && $id > 0) {
+            // Verificar si el producto existe
+            $product = $productModel->find($id);
+            if ($product) {
+                // Eliminar el producto
+                $productModel->delete($id);
+                return redirect()->to('/products')->with('success', 'Producto eliminado correctamente.');
+            } else {
+                return redirect()->to('/products')->with('error', 'Producto no encontrado.');
+            }
         } else {
-            return redirect()->to('/products')->with('error', 'Producto no encontrado.');
+            return redirect()->to('/products')->with('error', 'ID de producto inválido.');
         }
     }
 

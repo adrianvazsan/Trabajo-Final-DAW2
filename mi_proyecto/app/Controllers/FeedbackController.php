@@ -16,7 +16,7 @@ class FeedbackController extends BaseController
         $session = session(); // Obtener la sesión
     
         if (!$session->has('user_id')) {
-            redirect()->to('/login')->with('error', 'Debes iniciar sesión primero.')->send();
+            redirect()->to('/login')->with('error', 'You must log in first.')->send();
             exit;
         }
     }
@@ -25,14 +25,14 @@ class FeedbackController extends BaseController
         $session = session();
         
         if (!$session->has('user_id')) {
-            return redirect()->to('/login')->with('error', 'Debes iniciar sesión primero.');
+            return redirect()->to('/login')->with('error', 'You must log in first.');
         }
         
         $userModel = new UserModel();
         $user = $userModel->find($session->get('user_id'));
 
         if (!$user) {
-            return redirect()->to('/login')->with('error', 'Usuario no encontrado.');
+            return redirect()->to('/login')->with('error', 'User not found.');
         }
 
         $data = [
@@ -75,62 +75,73 @@ class FeedbackController extends BaseController
         return view('feedback_list', $data);
     }
     
-public function saveFeedback($id = null)
-    {
-        if ($this->session->get('id_rol') != 1) {
-            return redirect()->to('/feedback')->with('error', 'No tienes permisos para realizar esta acción.');
-        }
+    public function saveFeedback($id = null)
+{
+    $feedbackModel = new FeedbackModel();
+    helper(['form', 'url']);
 
-        helper(['form', 'url']);
+    // Cargar datos del feedback si es edición
+    $data['feedback'] = $id ? $feedbackModel->find($id) : null;
 
-        $data['feedback'] = $id ? $this->feedbackModel->find($id) : null;
+    if ($this->request->getMethod() == 'POST') {
+        // Reglas de validación
+        $validation = \Config\Services::validation();
+        $validation->setRules([
+            'name' => 'required|min_length[3]|max_length[100]',
+            'text' => 'required',
+            'rating' => 'required|integer|greater_than_equal_to[1]|less_than_equal_to[5]',
+        ]);
 
-        if ($this->request->getMethod() == 'POST') {
-            $validation = \Config\Services::validation();
-            $validation->setRules([
-                'user_id' => 'required|integer',
-                'comments' => 'required|min_length[5]',
-                'rating' => 'required|integer|greater_than[0]|less_than[6]',
-            ]);
+        if (!$validation->withRequest($this->request)->run()) {
+            // Mostrar errores de validación
+            $data['validation'] = $validation;
+            return view('feedback_form', $data);
+        } else {
+            // Preparar datos del formulario
+            $feedbackData = [
+                'name' => $this->request->getPost('name'),
+                'text' => $this->request->getPost('text'),
+                'rating' => $this->request->getPost('rating'),
+                'user_id' => session()->get('user_id'), // Asegurar que se envía el usuario autenticado
+            ];
 
-            if (!$validation->withRequest($this->request)->run()) {
-                $data['validation'] = $validation;
+            if ($id) {
+                $feedbackModel->update($id, $feedbackData);
+                $message = 'Feedback updated correctly.';
             } else {
-                $feedbackData = [
-                    'user_id' => $this->request->getPost('user_id'),
-                    'comments' => $this->request->getPost('comments'),
-                    'rating' => $this->request->getPost('rating'),
-                ];
+                $feedbackModel->insert($feedbackData);
+                $message = 'Feedback created correctly.';
+            }
 
-                if ($id) {
-                    $this->feedbackModel->update($id, $feedbackData);
-                    $message = 'Feedback actualizado correctamente.';
+            // Redirigir al listado con un mensaje de éxito
+            return redirect()->to('/feedback')->with('success', $message);
+        }
+    }
+
+    // Cargar la vista del formulario (crear/editar)
+    return view('feedback_form', $data);
+}
+
+    
+        public function delete($id)
+        {
+            $feedbackModel = new FeedbackModel();
+            
+            // Verificar si el ID es válido
+            if ($id && $id > 0) {
+                // Verificar si el feedback existe
+                $feedback = $feedbackModel->find($id);
+                if ($feedback) {
+                    // Eliminar el feedback
+                    $feedbackModel->delete($id);
+                    return redirect()->to('/feedback')->with('success', 'Feedback deleted correctly.');
                 } else {
-                    $this->feedbackModel->save($feedbackData);
-                    $message = 'Feedback creado correctamente.';
+                    return redirect()->to('/feedback')->with('error', 'Feedback not found.');
                 }
-
-                return redirect()->to('/feedback')->with('success', $message);
+            } else {
+                return redirect()->to('/feedback')->with('error', 'Invalid feedback ID.');
             }
         }
-        return view('feedback_form', $data);
-    }
-
-    public function delete($id)
-    {
-        if ($this->session->get('id_rol') != 1) {
-            return redirect()->to('/feedback')->with('error', 'No tienes permisos para realizar esta acción.');
-        }
-
-        $feedback = $this->feedbackModel->find($id);
-
-        if ($feedback) {
-            $this->feedbackModel->delete($id);
-            return redirect()->to('/feedback')->with('success', 'Feedback eliminado correctamente.');
-        } else {
-            return redirect()->to('/feedback')->with('error', 'Feedback no encontrado.');
-        }
-    }
     public function exportCSV()
     {
     $feedbackModel = new FeedbackModel();
@@ -147,7 +158,7 @@ public function saveFeedback($id = null)
     $output = fopen('php://output', 'w');
 
     // Escribir la fila de cabecera
-    fputcsv($output, ['ID', 'Nombre', 'Texto', 'Calificación', 'Fecha de Creación']);
+    fputcsv($output, ['ID', 'Name', 'Text', 'Rating', 'Created At']);
 
     // Escribir los datos de los feedbacks
     foreach ($feedbacks as $feedback) {

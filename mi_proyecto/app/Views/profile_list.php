@@ -89,21 +89,7 @@ License: For each use you must have a valid license purchased only from above li
 										<span class="menu-section text-muted text-uppercase fs-8 ls-1">Dashboard</span>
 									</div>
 								</div>
-								<div class="menu-item">
-									<a class="menu-link" href="<?= base_url("/")?>">
-										<span class="menu-icon">
-											<!--begin::Svg Icon | path: icons/duotune/art/art002.svg-->
-											<span class="svg-icon svg-icon-2">
-												<svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
-													<path opacity="0.3" d="M8.9 21L7.19999 22.6999C6.79999 23.0999 6.2 23.0999 5.8 22.6999L4.1 21H8.9ZM4 16.0999L2.3 17.8C1.9 18.2 1.9 18.7999 2.3 19.1999L4 20.9V16.0999ZM19.3 9.1999L15.8 5.6999C15.4 5.2999 14.8 5.2999 14.4 5.6999L9 11.0999V21L19.3 10.6999C19.7 10.2999 19.7 9.5999 19.3 9.1999Z" fill="black" />
-													<path d="M21 15V20C21 20.6 20.6 21 20 21H11.8L18.8 14H20C20.6 14 21 14.4 21 15ZM10 21V4C10 3.4 9.6 3 9 3H4C3.4 3 3 3.4 3 4V21C3 21.6 3.4 22 4 22H9C9.6 22 10 21.6 10 21ZM7.5 18.5C7.5 19.1 7.1 19.5 6.5 19.5C5.9 19.5 5.5 19.1 5.5 18.5C5.5 17.9 5.9 17.5 6.5 17.5C7.1 17.5 7.5 17.9 7.5 18.5Z" fill="black" />
-												</svg>
-											</span>
-											<!--end::Svg Icon-->
-										</span>
-										<span class="menu-title">Administration panel</span>
-									</a>
-								</div>
+							
 								
 								<div class="menu-item">
 									<a class="menu-link" href="<?= base_url("users")?>">
@@ -464,45 +450,6 @@ License: For each use you must have a valid license purchased only from above li
 
 								<!--end::Details-->
 								<!--begin::Toolbar-->
-								<div class="d-flex align-items-center">
-									<!--begin::Button-->
-									<a href="#" class="btn btn-default font-weight-bold btn-sm px-3 font-size-base">Back</a>
-									<!--end::Button-->
-									<!--begin::Dropdown-->
-									<div class="btn-group ml-2">
-										<button type="button" class="btn btn-primary font-weight-bold btn-sm px-3 font-size-base">Save Changes</button>
-										<button type="button" class="btn btn-primary font-weight-bold btn-sm px-3 font-size-base dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
-										<div class="dropdown-menu dropdown-menu-sm p-0 m-0 dropdown-menu-right">
-											<ul class="navi py-5">
-												<li class="navi-item">
-													<a href="#" class="navi-link">
-														<span class="navi-icon">
-															<i class="flaticon2-writing"></i>
-														</span>
-														<span class="navi-text">Save &amp; continue</span>
-													</a>
-												</li>
-												<li class="navi-item">
-													<a href="#" class="navi-link">
-														<span class="navi-icon">
-															<i class="flaticon2-medical-records"></i>
-														</span>
-														<span class="navi-text">Save &amp; add new</span>
-													</a>
-												</li>
-												<li class="navi-item">
-													<a href="#" class="navi-link">
-														<span class="navi-icon">
-															<i class="flaticon2-hourglass-1"></i>
-														</span>
-														<span class="navi-text">Save &amp; exit</span>
-													</a>
-												</li>
-											</ul>
-										</div>
-									</div>
-									<!--end::Dropdown-->
-								</div>
 								<!--end::Toolbar-->
 							</div>
 						</div>
@@ -551,12 +498,12 @@ License: For each use you must have a valid license purchased only from above li
 																<div class="row">
 																	<label class="col-3"></label>
 																	<div class="col-9">
-																		<h6 class="text-dark font-weight-bold mb-10">Información del usuario:</h6>
+																		<h6 class="text-dark font-weight-bold mb-10">User information:</h6>
 																	</div>
 																</div>
 
 																<div class="form-group row">
-																	<label class="col-form-label col-3 text-lg-right text-left">Nombre</label>
+																	<label class="col-form-label col-3 text-lg-right text-left">Name</label>
 																	<div class="col-9">
 																		<input class="form-control form-control-lg form-control-solid" type="text" 
 																			name="name" value="<?= esc($user_name) ?>" required />
@@ -566,7 +513,7 @@ License: For each use you must have a valid license purchased only from above li
 																<br>
 
 																<div class="form-group row">
-																	<label class="col-form-label col-3 text-lg-right text-left">Número de teléfono</label>
+																	<label class="col-form-label col-3 text-lg-right text-left">Phone Number</label>
 																	<div class="col-9">
 																		<div class="input-group input-group-lg input-group-solid">
 																			<div class="input-group-prepend">
@@ -601,7 +548,7 @@ License: For each use you must have a valid license purchased only from above li
 
 																<div class="form-group row">
 																	<div class="col-9 offset-3">
-																		<button type="submit" class="btn btn-primary">Guardar cambios</button>
+																		<button type="submit" class="btn btn-primary">save changes</button>
 																	</div>
 																</div>
 
