@@ -1,0 +1,328 @@
+CRITICAL - 2025-02-24 08:08:31 --> ErrorException: Undefined variable $order
+[Method: GET, Route: users]
+in APPPATH\Views\user_list.php on line 562.
+ 1 APPPATH\Views\user_list.php(562): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $order', 'C:\\wamp64\\www\\mi_proyecto\\app\\Views\\user_list.php', 562)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\wamp64\\www\\mi_proyecto\\app\\Views\\user_list.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('user_list', [], true)
+ 5 APPPATH\Controllers\UserController.php(43): view('user_list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\UserController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-02-24 08:08:33 --> ErrorException: Undefined variable $order
+[Method: GET, Route: users]
+in APPPATH\Views\user_list.php on line 562.
+ 1 APPPATH\Views\user_list.php(562): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $order', 'C:\\wamp64\\www\\mi_proyecto\\app\\Views\\user_list.php', 562)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\wamp64\\www\\mi_proyecto\\app\\Views\\user_list.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('user_list', [], true)
+ 5 APPPATH\Controllers\UserController.php(43): view('user_list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\UserController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-02-24 08:09:11 --> ParseError: syntax error, unexpected token "else", expecting end of file
+[Method: GET, Route: users]
+in APPPATH\Views\user_list.php on line 627.
+ 1 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('user_list', [], true)
+ 3 APPPATH\Controllers\UserController.php(43): view('user_list', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\UserController->index()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-02-24 08:11:29 --> ErrorException: Undefined variable $order
+[Method: GET, Route: users]
+in APPPATH\Views\user_list.php on line 562.
+ 1 APPPATH\Views\user_list.php(562): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $order', 'C:\\wamp64\\www\\mi_proyecto\\app\\Views\\user_list.php', 562)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\wamp64\\www\\mi_proyecto\\app\\Views\\user_list.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('user_list', [], true)
+ 5 APPPATH\Controllers\UserController.php(43): view('user_list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\UserController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-02-24 08:13:22 --> ErrorException: Undefined variable $order
+[Method: GET, Route: users]
+in APPPATH\Views\user_list.php on line 562.
+ 1 APPPATH\Views\user_list.php(562): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $order', 'C:\\wamp64\\www\\mi_proyecto\\app\\Views\\user_list.php', 562)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\wamp64\\www\\mi_proyecto\\app\\Views\\user_list.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('user_list', [], true)
+ 5 APPPATH\Controllers\UserController.php(43): view('user_list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\UserController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-02-24 09:26:27 --> ParseError: syntax error, unexpected end of file
+[Method: GET, Route: profiles]
+in APPPATH\Views\profile_list.php on line 3860.
+ 1 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('profile_list', [], true)
+ 3 APPPATH\Controllers\ProfileController.php(39): view('profile_list', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProfileController->index()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProfileController))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-02-24 09:27:12 --> ErrorException: Undefined variable $user
+[Method: GET, Route: profiles]
+in APPPATH\Views\profile_list.php on line 216.
+ 1 APPPATH\Views\profile_list.php(216): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $user', 'C:\\wamp64\\www\\mi_proyecto\\app\\Views\\profile_list.php', 216)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\wamp64\\www\\mi_proyecto\\app\\Views\\profile_list.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('profile_list', [], true)
+ 5 APPPATH\Controllers\ProfileController.php(39): view('profile_list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProfileController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProfileController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-02-24 09:27:12 --> ErrorException: Undefined variable $user
+[Method: GET, Route: profiles]
+in APPPATH\Views\profile_list.php on line 216.
+ 1 APPPATH\Views\profile_list.php(216): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $user', 'C:\\wamp64\\www\\mi_proyecto\\app\\Views\\profile_list.php', 216)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\wamp64\\www\\mi_proyecto\\app\\Views\\profile_list.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('profile_list', [], true)
+ 5 APPPATH\Controllers\ProfileController.php(39): view('profile_list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProfileController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProfileController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-02-24 09:27:19 --> ParseError: syntax error, unexpected end of file
+[Method: GET, Route: profiles]
+in APPPATH\Views\profile_list.php on line 3861.
+ 1 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('profile_list', [], true)
+ 3 APPPATH\Controllers\ProfileController.php(39): view('profile_list', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProfileController->index()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProfileController))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-02-24 09:27:44 --> ParseError: syntax error, unexpected end of file
+[Method: GET, Route: profiles]
+in APPPATH\Views\profile_list.php on line 3860.
+ 1 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('profile_list', [], true)
+ 3 APPPATH\Controllers\ProfileController.php(39): view('profile_list', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProfileController->index()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProfileController))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-02-24 09:31:17 --> ErrorException: Undefined variable $users
+[Method: GET, Route: profiles]
+in APPPATH\Views\profile_list.php on line 213.
+ 1 APPPATH\Views\profile_list.php(213): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $users', 'C:\\wamp64\\www\\mi_proyecto\\app\\Views\\profile_list.php', 213)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\wamp64\\www\\mi_proyecto\\app\\Views\\profile_list.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('profile_list', [], true)
+ 5 APPPATH\Controllers\ProfileController.php(39): view('profile_list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProfileController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProfileController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-02-24 09:31:18 --> ErrorException: Undefined variable $users
+[Method: GET, Route: profiles]
+in APPPATH\Views\profile_list.php on line 213.
+ 1 APPPATH\Views\profile_list.php(213): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $users', 'C:\\wamp64\\www\\mi_proyecto\\app\\Views\\profile_list.php', 213)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\wamp64\\www\\mi_proyecto\\app\\Views\\profile_list.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('profile_list', [], true)
+ 5 APPPATH\Controllers\ProfileController.php(39): view('profile_list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProfileController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProfileController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-02-24 09:31:21 --> ErrorException: Undefined variable $users
+[Method: GET, Route: profiles]
+in APPPATH\Views\profile_list.php on line 213.
+ 1 APPPATH\Views\profile_list.php(213): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $users', 'C:\\wamp64\\www\\mi_proyecto\\app\\Views\\profile_list.php', 213)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\wamp64\\www\\mi_proyecto\\app\\Views\\profile_list.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('profile_list', [], true)
+ 5 APPPATH\Controllers\ProfileController.php(39): view('profile_list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProfileController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProfileController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-02-24 09:36:58 --> ErrorException: Undefined variable $users
+[Method: GET, Route: profiles]
+in APPPATH\Views\profile_list.php on line 213.
+ 1 APPPATH\Views\profile_list.php(213): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $users', 'C:\\wamp64\\www\\mi_proyecto\\app\\Views\\profile_list.php', 213)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\wamp64\\www\\mi_proyecto\\app\\Views\\profile_list.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('profile_list', [], true)
+ 5 APPPATH\Controllers\ProfileController.php(53): view('profile_list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProfileController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProfileController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-02-24 09:38:52 --> ErrorException: Undefined variable $users
+[Method: GET, Route: profiles]
+in APPPATH\Views\profile_list.php on line 213.
+ 1 APPPATH\Views\profile_list.php(213): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $users', 'C:\\wamp64\\www\\mi_proyecto\\app\\Views\\profile_list.php', 213)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\wamp64\\www\\mi_proyecto\\app\\Views\\profile_list.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('profile_list', [], true)
+ 5 APPPATH\Controllers\ProfileController.php(53): view('profile_list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProfileController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProfileController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-02-24 09:38:53 --> ErrorException: Undefined variable $users
+[Method: GET, Route: profiles]
+in APPPATH\Views\profile_list.php on line 213.
+ 1 APPPATH\Views\profile_list.php(213): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $users', 'C:\\wamp64\\www\\mi_proyecto\\app\\Views\\profile_list.php', 213)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\wamp64\\www\\mi_proyecto\\app\\Views\\profile_list.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('profile_list', [], true)
+ 5 APPPATH\Controllers\ProfileController.php(53): view('profile_list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProfileController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProfileController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-02-24 09:38:55 --> ErrorException: Undefined variable $users
+[Method: GET, Route: profiles]
+in APPPATH\Views\profile_list.php on line 213.
+ 1 APPPATH\Views\profile_list.php(213): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $users', 'C:\\wamp64\\www\\mi_proyecto\\app\\Views\\profile_list.php', 213)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\wamp64\\www\\mi_proyecto\\app\\Views\\profile_list.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('profile_list', [], true)
+ 5 APPPATH\Controllers\ProfileController.php(53): view('profile_list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProfileController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProfileController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-02-24 09:38:55 --> ErrorException: Undefined variable $users
+[Method: GET, Route: profiles]
+in APPPATH\Views\profile_list.php on line 213.
+ 1 APPPATH\Views\profile_list.php(213): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $users', 'C:\\wamp64\\www\\mi_proyecto\\app\\Views\\profile_list.php', 213)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\wamp64\\www\\mi_proyecto\\app\\Views\\profile_list.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('profile_list', [], true)
+ 5 APPPATH\Controllers\ProfileController.php(53): view('profile_list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProfileController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProfileController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-02-24 09:38:55 --> ErrorException: Undefined variable $users
+[Method: GET, Route: profiles]
+in APPPATH\Views\profile_list.php on line 213.
+ 1 APPPATH\Views\profile_list.php(213): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $users', 'C:\\wamp64\\www\\mi_proyecto\\app\\Views\\profile_list.php', 213)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\wamp64\\www\\mi_proyecto\\app\\Views\\profile_list.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('profile_list', [], true)
+ 5 APPPATH\Controllers\ProfileController.php(53): view('profile_list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProfileController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProfileController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-02-24 09:38:55 --> ErrorException: Undefined variable $users
+[Method: GET, Route: profiles]
+in APPPATH\Views\profile_list.php on line 213.
+ 1 APPPATH\Views\profile_list.php(213): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $users', 'C:\\wamp64\\www\\mi_proyecto\\app\\Views\\profile_list.php', 213)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\wamp64\\www\\mi_proyecto\\app\\Views\\profile_list.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('profile_list', [], true)
+ 5 APPPATH\Controllers\ProfileController.php(53): view('profile_list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProfileController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProfileController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-02-24 09:39:49 --> ErrorException: Undefined variable $users
+[Method: GET, Route: profiles]
+in APPPATH\Views\profile_list.php on line 213.
+ 1 APPPATH\Views\profile_list.php(213): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $users', 'C:\\wamp64\\www\\mi_proyecto\\app\\Views\\profile_list.php', 213)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\wamp64\\www\\mi_proyecto\\app\\Views\\profile_list.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('profile_list', [], true)
+ 5 APPPATH\Controllers\ProfileController.php(53): view('profile_list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProfileController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProfileController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-02-24 10:46:29 --> ErrorException: Undefined variable $users
+[Method: GET, Route: profiles]
+in APPPATH\Views\profile_list.php on line 213.
+ 1 APPPATH\Views\profile_list.php(213): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $users', 'C:\\wamp64\\www\\mi_proyecto\\app\\Views\\profile_list.php', 213)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\wamp64\\www\\mi_proyecto\\app\\Views\\profile_list.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('profile_list', [], true)
+ 5 APPPATH\Controllers\ProfileController.php(28): view('profile_list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProfileController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProfileController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-02-24 10:46:30 --> ErrorException: Undefined variable $users
+[Method: GET, Route: profiles]
+in APPPATH\Views\profile_list.php on line 213.
+ 1 APPPATH\Views\profile_list.php(213): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $users', 'C:\\wamp64\\www\\mi_proyecto\\app\\Views\\profile_list.php', 213)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\wamp64\\www\\mi_proyecto\\app\\Views\\profile_list.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('profile_list', [], true)
+ 5 APPPATH\Controllers\ProfileController.php(28): view('profile_list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProfileController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProfileController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-02-24 10:51:10 --> ErrorException: Undefined variable $users
+[Method: GET, Route: profiles]
+in APPPATH\Views\profile_list.php on line 213.
+ 1 APPPATH\Views\profile_list.php(213): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $users', 'C:\\wamp64\\www\\mi_proyecto\\app\\Views\\profile_list.php', 213)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\wamp64\\www\\mi_proyecto\\app\\Views\\profile_list.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('profile_list', [], true)
+ 5 APPPATH\Controllers\ProfileController.php(31): view('profile_list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProfileController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProfileController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
