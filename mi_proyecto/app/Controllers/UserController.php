@@ -76,7 +76,8 @@ class UserController extends BaseController
         $data["pager"] = $userModel->pager;
         $data["filters"] = [
             'search' => $search,
-            'archived' => $archived
+            'archived' => $archived,
+           
         ];
         $data["order"] = $order;
     
