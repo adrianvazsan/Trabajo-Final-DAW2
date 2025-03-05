@@ -42,9 +42,20 @@ License: For each use you must have a valid license purchased only from above li
 			<div class="d-flex flex-column flex-column-fluid bgi-position-y-bottom position-x-center bgi-no-repeat bgi-size-contain bgi-attachment-fixed" style="background-image: url('<?= base_url('assets/media/illustrations/sketchy-1/14.png')?>')">
 				<!--begin::Content-->
 				<div class="d-flex flex-center flex-column flex-column-fluid p-10 pb-lg-20">
+
+				<?php if (session()->getFlashdata('success')): ?>
+                            <div class="alert alert-success">
+                                <?= session()->getFlashdata('success') ?>
+                            </div>
+                        <?php endif; ?>
+                        <?php if (isset($validation)): ?>
+                            <div class="alert alert-danger">
+                                <?= $validation->listErrors() ?>
+                            </div>
+                        <?php endif; ?>
 					<!--begin::Logo-->
 					<a href="../../demo1/dist/index.html" class="mb-12">
-						<img alt="Logo" src="<?= base_url("assets/media/logos/logo-1.svg")?>" class="h-40px" />
+						<img alt="Logo" src="<?= base_url("assets/media/logos/logo-coffe.png")?>" class="h-150px" />
 					</a>
 					<!--end::Logo-->
 					<!--begin::Wrapper-->

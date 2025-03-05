@@ -54,7 +54,7 @@ License: For each use you must have a valid license purchased only from above li
                         <?php endif; ?>
 					<!--begin::Logo-->
 					<a href="../../demo1/dist/index.html" class="mb-12">
-						<img alt="Logo" src="<?= base_url("assets/media/logos/logo-1.svg")?>" class="h-40px" />
+						<img alt="Logo" src="<?= base_url("assets/media/logos/logo-coffe.png")?>" class="h-150px" />
 					</a>
 					<!--end::Logo-->
 					<!--begin::Wrapper-->

@@ -27,21 +27,21 @@
                     </div>
                 <?php endif; ?>
                 <a href="../../demo1/dist/index.html" class="mb-12">
-                    <img alt="Logo" src="<?= base_url("assets/media/logos/logo-1.svg")?>" class="h-40px" />
+                    <img alt="Logo" src="<?= base_url("assets/media/logos/logo-coffe.png")?>" class="h-150px" />
                 </a>
                 <div class="w-lg-500px bg-body rounded shadow-sm p-10 p-lg-15 mx-auto">
                     <form method="post" action="<?= base_url('feedback/save' . (isset($feedback['id']) ? '/' . $feedback['id'] : '')) ?>">
                         <?= csrf_field() ?>
                         <div class="mb-10">
-                            <label class="form-label">Name</label>
+                            <label class="required form-label">Name</label>
                             <input type="text" name="name" class="form-control" value="<?= esc($feedback['name'] ?? '') ?>" required>
                         </div>
                         <div class="mb-10">
-                            <label class="form-label">Text</label>
+                            <label class="required form-label">Text</label>
                             <textarea name="text" class="form-control" required><?= esc($feedback['text'] ?? '') ?></textarea>
                         </div>
                         <div class="mb-10">
-                            <label class="form-label">Rating</label>
+                            <label class="required form-label">Rating</label>
                             <input type="number" name="rating" class="form-control" value="<?= esc($feedback['rating'] ?? '') ?>" min="1" max="5" required>
                         </div>
                         <div class="d-flex justify-content-end">

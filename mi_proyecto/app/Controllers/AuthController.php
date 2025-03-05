@@ -69,7 +69,7 @@ class AuthController extends BaseController
         // Configuración de las reglas de validación del formulario.
         $rules = [
             'email' => 'required|valid_email', // El correo es obligatorio y debe ser válido.
-            'password' => 'required', // La contraseña es obligatoria.
+            'password' => 'required|min_length[6]', // La contraseña es obligatoria.
         ];
 
         // Si la validación falla, volvemos a mostrar el formulario con los errores.
