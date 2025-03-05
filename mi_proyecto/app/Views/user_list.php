@@ -13,7 +13,7 @@ License: For each use you must have a valid license purchased only from above li
 <html lang="en">
 	<!--begin::Head-->
 	<head><base href="">
-		<title>Metronic - the world's #1 selling Bootstrap Admin Theme Ecosystem for HTML, Vue, React, Angular &amp; Laravel by Keenthemes</title>
+		<title>Welcome to roast_coffe</title>
 		<meta name="description" content="The most advanced Bootstrap Admin Theme on Themeforest trusted by 94,000 beginners and professionals. Multi-demo, Dark Mode, RTL support and complete React, Angular, Vue &amp; Laravel versions. Grab your copy now and get life-time updates for free." />
 		<meta name="keywords" content="Metronic, bootstrap, bootstrap 5, Angular, VueJs, React, Laravel, admin themes, web design, figma, web development, free templates, free admin themes, bootstrap theme, bootstrap template, bootstrap dashboard, bootstrap dak mode, bootstrap button, bootstrap datepicker, bootstrap timepicker, fullcalendar, datatables, flaticon" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -60,9 +60,9 @@ License: For each use you must have a valid license purchased only from above li
 					<!--begin::Brand-->
 					<div class="aside-logo flex-column-auto" id="kt_aside_logo">
 						<!--begin::Logo-->
-						<a href="../../demo1/dist/index.html">
+						<div>
 							<img alt="Logo" src="<?= base_url("assets/media/logos/logo-coffe.png")?>" class="h-100px logo" />
-						</a>
+						</div>
 						<!--end::Logo-->
 						<!--begin::Aside toggler-->
 						<div id="kt_aside_toggle" class="btn btn-icon w-auto px-0 btn-active-color-primary aside-toggle" data-kt-toggle="true" data-kt-toggle-state="active" data-kt-toggle-target="body" data-kt-toggle-name="aside-minimize">
@@ -221,128 +221,13 @@ License: For each use you must have a valid license purchased only from above li
 										<a href="<?= base_url("profiles")?>" class="menu-link px-5">My Profile</a>
 									</div>
 									<!--end::Menu item-->
-									<!--begin::Menu item-->
-									<div class="menu-item px-5">
-										<a href="../../demo1/dist/pages/projects/list.html" class="menu-link px-5">
-											<span class="menu-text">My Projects</span>
-											<span class="menu-badge">
-												<span class="badge badge-light-danger badge-circle fw-bolder fs-7">3</span>
-											</span>
-										</a>
-									</div>
-									<!--end::Menu item-->
-									<!--begin::Menu item-->
-									<div class="menu-item px-5" data-kt-menu-trigger="hover" data-kt-menu-placement="left-start">
-										<a href="#" class="menu-link px-5">
-											<span class="menu-title">My Subscription</span>
-											<span class="menu-arrow"></span>
-										</a>
-										<!--begin::Menu sub-->
-										<div class="menu-sub menu-sub-dropdown w-175px py-4">
-											<!--begin::Menu item-->
-											<div class="menu-item px-3">
-												<a href="../../demo1/dist/account/referrals.html" class="menu-link px-5">Referrals</a>
-											</div>
-											<!--end::Menu item-->
-											<!--begin::Menu item-->
-											<div class="menu-item px-3">
-												<a href="../../demo1/dist/account/billing.html" class="menu-link px-5">Billing</a>
-											</div>
-											<!--end::Menu item-->
-											<!--begin::Menu item-->
-											<div class="menu-item px-3">
-												<a href="../../demo1/dist/account/statements.html" class="menu-link px-5">Payments</a>
-											</div>
-											<!--end::Menu item-->
-											<!--begin::Menu item-->
-											<div class="menu-item px-3">
-												<a href="../../demo1/dist/account/statements.html" class="menu-link d-flex flex-stack px-5">Statements
-												<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="View your statements"></i></a>
-											</div>
-											<!--end::Menu item-->
-											<!--begin::Menu separator-->
-											<div class="separator my-2"></div>
-											<!--end::Menu separator-->
-											<!--begin::Menu item-->
-											<div class="menu-item px-3">
-												<div class="menu-content px-3">
-													<label class="form-check form-switch form-check-custom form-check-solid">
-														<input class="form-check-input w-30px h-20px" type="checkbox" value="1" checked="checked" name="notifications" />
-														<span class="form-check-label text-muted fs-7">Notifications</span>
-													</label>
-												</div>
-											</div>
-											<!--end::Menu item-->
-										</div>
-										<!--end::Menu sub-->
-									</div>
-									<!--end::Menu item-->
-									<!--begin::Menu item-->
-									<div class="menu-item px-5">
-										<a href="../../demo1/dist/account/statements.html" class="menu-link px-5">My Statements</a>
-									</div>
-									<!--end::Menu item-->
+								
+									
 									<!--begin::Menu separator-->
-									<div class="separator my-2"></div>
+									
 									<!--end::Menu separator-->
-									<!--begin::Menu item-->
-									<div class="menu-item px-5" data-kt-menu-trigger="hover" data-kt-menu-placement="left-start">
-										<a href="#" class="menu-link px-5">
-											<span class="menu-title position-relative">Language
-											<span class="fs-8 rounded bg-light px-3 py-2 position-absolute translate-middle-y top-50 end-0">English
-											<img class="w-15px h-15px rounded-1 ms-2" src="<?= base_url("assets/media/flags/united-states.svg")?>" alt="" /></span></span>
-										</a>
-										<!--begin::Menu sub-->
-										<div class="menu-sub menu-sub-dropdown w-175px py-4">
-											<!--begin::Menu item-->
-											<div class="menu-item px-3">
-												<a href="../../demo1/dist/account/settings.html" class="menu-link d-flex px-5 active">
-												<span class="symbol symbol-20px me-4">
-													<img class="rounded-1" src="<?= base_url("assets/media/flags/united-states.svg")?>" alt="" />
-												</span>English</a>
-											</div>
-											<!--end::Menu item-->
-											<!--begin::Menu item-->
-											<div class="menu-item px-3">
-												<a href="../../demo1/dist/account/settings.html" class="menu-link d-flex px-5">
-												<span class="symbol symbol-20px me-4">
-													<img class="rounded-1" src="<?= base_url("assets/media/flags/spain.svg")?>" alt="" />
-												</span>Spanish</a>
-											</div>
-											<!--end::Menu item-->
-											<!--begin::Menu item-->
-											<div class="menu-item px-3">
-												<a href="../../demo1/dist/account/settings.html" class="menu-link d-flex px-5">
-												<span class="symbol symbol-20px me-4">
-													<img class="rounded-1" src="<?= base_url("assets/media/flags/germany.svg")?>" alt="" />
-												</span>German</a>
-											</div>
-											<!--end::Menu item-->
-											<!--begin::Menu item-->
-											<div class="menu-item px-3">
-												<a href="../../demo1/dist/account/settings.html" class="menu-link d-flex px-5">
-												<span class="symbol symbol-20px me-4">
-													<img class="rounded-1" src="<?= base_url("assets/media/flags/japan.svg")?>" alt="" />
-												</span>Japanese</a>
-											</div>
-											<!--end::Menu item-->
-											<!--begin::Menu item-->
-											<div class="menu-item px-3">
-												<a href="../../demo1/dist/account/settings.html" class="menu-link d-flex px-5">
-												<span class="symbol symbol-20px me-4">
-													<img class="rounded-1" src="<?= base_url("assets/media/flags/france.svg")?>" alt="" />
-												</span>French</a>
-											</div>
-											<!--end::Menu item-->
-										</div>
-										<!--end::Menu sub-->
-									</div>
-									<!--end::Menu item-->
-									<!--begin::Menu item-->
-									<div class="menu-item px-5 my-1">
-										<a href="../../demo1/dist/account/settings.html" class="menu-link px-5">Account Settings</a>
-									</div>
-									<!--end::Menu item-->
+									
+							
 									<!--begin::Menu item-->
 									<div class="menu-item px-5">
 									<a href="<?php echo base_url('/logout'); ?>" class="menu-link px-5">Sign Out</a>
@@ -350,19 +235,7 @@ License: For each use you must have a valid license purchased only from above li
 									</div>
 									<!--end::Menu item-->
 									<!--begin::Menu separator-->
-									<div class="separator my-2"></div>
-									<!--end::Menu separator-->
-									<!--begin::Menu item-->
-									<div class="menu-item px-5">
-										<div class="menu-content px-5">
-											<label class="form-check form-switch form-check-custom form-check-solid pulse pulse-success" for="kt_user_menu_dark_mode_toggle">
-												<input class="form-check-input w-30px h-20px" type="checkbox" value="1" name="mode" id="kt_user_menu_dark_mode_toggle" data-kt-url="../../demo1/dist/index.html" />
-												<span class="pulse-ring ms-n1"></span>
-												<span class="form-check-label text-gray-600 fs-7">Dark Mode</span>
-											</label>
-										</div>
-									</div>
-									<!--end::Menu item-->
+						
 								</div>
 								<!--end::Menu-->
 								<!--end::Menu wrapper-->
@@ -396,9 +269,9 @@ License: For each use you must have a valid license purchased only from above li
 							<!--end::Aside mobile toggle-->
 							<!--begin::Mobile logo-->
 							<div class="d-flex align-items-center flex-grow-1 flex-lg-grow-0">
-								<a href="../../demo1/dist/index.html" class="d-lg-none">
+								<div class="d-lg-none">
 									<img alt="Logo" src="assets/media/logos/logo-coffe.png" class="h-100px" />
-								</a>
+								</div>
 							</div>
 							<!--end::Mobile logo-->
 							<!--begin::Wrapper-->
@@ -451,9 +324,9 @@ License: For each use you must have a valid license purchased only from above li
 										<form method="GET" action="<?= base_url('users') ?>">
 											<label for="archived"></label>
 											<select class="form-select form-select-solid fw-bolder" name="archived" id="archived" onchange="this.form.submit()">
-												<option value="" <?= (!isset($filters['archived']) || $filters['archived'] === '') ? 'selected' : '' ?>>Todos</option>
-												<option value="0" <?= ($filters['archived'] === '0') ? 'selected' : '' ?>>Usuarios activos</option>
-												<option value="1" <?= ($filters['archived'] === '1') ? 'selected' : '' ?>>Usuarios archivados</option>
+												<option value="" <?= (!isset($filters['archived']) || $filters['archived'] === '') ? 'selected' : '' ?>>All users</option>
+												<option value="0" <?= ($filters['archived'] === '0') ? 'selected' : '' ?>>Active users</option>
+												<option value="1" <?= ($filters['archived'] === '1') ? 'selected' : '' ?>>Archived users</option>
 											</select>
 										</form>
 
@@ -547,35 +420,36 @@ License: For each use you must have a valid license purchased only from above li
 											<?php endif; ?>
 
 										<div class="card-body pt-0">
-										<a href="<?= base_url('users/save') ?>" class="btn btn-primary mb-3">
-											<i class="fas fa-user-plus"></i> Created User
-										</a>
-
+										<?php if (session()->get('id_rol') == 1): // Solo los administradores pueden ver estos botones ?>
+											<a href="<?= base_url('users/save') ?>" class="btn btn-primary mb-3">
+												<i class="fas fa-user-plus"></i> Created User
+											</a>
+										<?php endif; ?>
 										<?php if (!empty($users) && is_array($users)): ?>
 											<div class="table-responsive">
 												<table class="table align-middle table-row-dashed fs-6 gy-5" id="kt_customers_table">
 													<thead>
 															<tr class="text-start text-gray-400 fw-bolder fs-7 text-uppercase gs-0">
 																<th class="min-w-125px">
-																	<a href="<?= base_url('users?sort=id&order=' . ($order === 'asc' ? 'desc' : 'asc')) ?>">ID</a>
+																	<a href="<?= base_url('users?sort=id&order=' . ($order === 'asc' ? 'desc' : 'asc')) ?>">ID<span class="ms-2"><?= $order === 'asc' ? '<i class="fas fa-sort-up"></i>' : '<i class="fas fa-sort-down"></i>' ?></span></a>
 																</th>
 																<th class="min-w-125px">
-																	<a href="<?= base_url('users?sort=name&order=' . ($order === 'asc' ? 'desc' : 'asc')) ?>">Name</a>
+																	<a href="<?= base_url('users?sort=name&order=' . ($order === 'asc' ? 'desc' : 'asc')) ?>">Name<span class="ms-2"><?= $order === 'asc' ? '<i class="fas fa-sort-up"></i>' : '<i class="fas fa-sort-down"></i>' ?></span></a>
 																</th>
 																<th class="min-w-125px">
-																	<a href="<?= base_url('users?sort=email&order=' . ($order === 'asc' ? 'desc' : 'asc')) ?>">Email</a>
+																	<a href="<?= base_url('users?sort=email&order=' . ($order === 'asc' ? 'desc' : 'asc')) ?>">Email<span class="ms-2"><?= $order === 'asc' ? '<i class="fas fa-sort-up"></i>' : '<i class="fas fa-sort-down"></i>' ?></span></a>
 																</th>
 																<th class="min-w-125px">
-																	<a href="<?= base_url('users?sort=number_phone&order=' . ($order === 'asc' ? 'desc' : 'asc')) ?>">Phone</a>
+																	<a href="<?= base_url('users?sort=number_phone&order=' . ($order === 'asc' ? 'desc' : 'asc')) ?>">Phone<span class="ms-2"><?= $order === 'asc' ? '<i class="fas fa-sort-up"></i>' : '<i class="fas fa-sort-down"></i>' ?></span></a>
 																</th>
 																<th class="min-w-125px">
-																	<a href="<?= base_url('users?sort=address&order=' . ($order === 'asc' ? 'desc' : 'asc')) ?>">Addres</a>
+																	<a href="<?= base_url('users?sort=address&order=' . ($order === 'asc' ? 'desc' : 'asc')) ?>">Addres<span class="ms-2"><?= $order === 'asc' ? '<i class="fas fa-sort-up"></i>' : '<i class="fas fa-sort-down"></i>' ?></span></a>
 																</th>
 																<th class="min-w-125px">
-																	<a href="<?= base_url('users?sort=password&order=' . ($order === 'asc' ? 'desc' : 'asc')) ?>">Password</a>
+																	<a href="<?= base_url('users?sort=password&order=' . ($order === 'asc' ? 'desc' : 'asc')) ?>">Password<span class="ms-2"><?= $order === 'asc' ? '<i class="fas fa-sort-up"></i>' : '<i class="fas fa-sort-down"></i>' ?></span></a>
 																</th>
 																<th class="min-w-125px">
-																	<a href="<?= base_url('users?sort=created_at&order=' . ($order === 'asc' ? 'desc' : 'asc')) ?>">Date of creation</a>
+																	<a href="<?= base_url('users?sort=created_at&order=' . ($order === 'asc' ? 'desc' : 'asc')) ?>">Date of creation<span class="ms-2"><?= $order === 'asc' ? '<i class="fas fa-sort-up"></i>' : '<i class="fas fa-sort-down"></i>' ?></span></a>
 																</th>
 																<th class="text-end min-w-70px">Actions</th>
 															</tr>
