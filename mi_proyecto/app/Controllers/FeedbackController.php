@@ -72,6 +72,7 @@ class FeedbackController extends BaseController
         $data["pager"] = $feedbackModel->pager;
         $data["filters"] = ['search' => $search]; // Pasamos el filtro de búsqueda a la vista
         $data["order"] = $order; // Pasamos el orden a la vista
+        $data["sort"] = $sort; // Pasamos la columna de orden a la vista
         return view('feedback_list', $data);
     }
     

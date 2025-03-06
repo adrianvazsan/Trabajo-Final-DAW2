@@ -97,7 +97,7 @@ License: For each use you must have a valid license purchased only from above li
 									<input class="form-control form-control-lg form-control-solid" type="text" placeholder="" name="last-name" autocomplete="off" />
 								</div>-->
 								<div class="fv-row mb-7">
-									<label for="name" class="form-label fw-bolder text-dark fs-6">Name</label>
+									<label for="name" class="required form-label fw-bolder text-dark fs-6">Name</label>
 									<input type="text" name="name" id="name" class="form-control form-control-lg form-control-solid" placeholder="Tu nombre" value="<?= set_value('name') ?>" required>
 								</div>
 								<!--end::Col-->
@@ -105,7 +105,7 @@ License: For each use you must have a valid license purchased only from above li
 							<!--end::Input group-->
 							<!--begin::Input group-->
 							<div class="fv-row mb-7">
-								<label class="form-label fw-bolder text-dark fs-6">Email</label>
+								<label class="required form-label fw-bolder text-dark fs-6">Email</label>
 								<input class="form-control form-control-lg form-control-solid" type="email" placeholder="" name="email" id="email" value="<?= set_value('email') ?>" autocomplete="off" />
 							</div>
 							<!--end::Input group-->
@@ -114,7 +114,7 @@ License: For each use you must have a valid license purchased only from above li
 								<!--begin::Wrapper-->
 								<div class="mb-1">
 									<!--begin::Label-->
-									<label class="form-label fw-bolder text-dark fs-6">Password</label>
+									<label class="required form-label fw-bolder text-dark fs-6">Password</label>
 									<!--end::Label-->
 									<!--begin::Input wrapper-->
 									<div class="position-relative mb-3">
@@ -142,7 +142,7 @@ License: For each use you must have a valid license purchased only from above li
 							<!--end::Input group=-->
 							<!--begin::Input group-->
 							<div class="fv-row mb-5">
-								<label class="form-label fw-bolder text-dark fs-6">Confirm Password</label>
+								<label class="required form-label fw-bolder text-dark fs-6">Confirm Password</label>
 								<input class="form-control form-control-lg form-control-solid" type="password" placeholder="" name="password_confirm" id="password_confirm" autocomplete="off" />
 							</div>
 							<!--end::Input group-->

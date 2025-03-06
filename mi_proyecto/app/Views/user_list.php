@@ -409,7 +409,7 @@ License: For each use you must have a valid license purchased only from above li
 											<!--end::Group actions-->
 										</div>
 										<!--end::Card toolbar-->
-									</div>
+								
 									<!--end::Card header-->
 									<!--begin::Card body-->
 									
@@ -429,30 +429,66 @@ License: For each use you must have a valid license purchased only from above li
 											<div class="table-responsive">
 												<table class="table align-middle table-row-dashed fs-6 gy-5" id="kt_customers_table">
 													<thead>
-															<tr class="text-start text-gray-400 fw-bolder fs-7 text-uppercase gs-0">
-																<th class="min-w-125px">
-																	<a href="<?= base_url('users?sort=id&order=' . ($order === 'asc' ? 'desc' : 'asc')) ?>">ID<span class="ms-2"><?= $order === 'asc' ? '<i class="fas fa-sort-up"></i>' : '<i class="fas fa-sort-down"></i>' ?></span></a>
-																</th>
-																<th class="min-w-125px">
-																	<a href="<?= base_url('users?sort=name&order=' . ($order === 'asc' ? 'desc' : 'asc')) ?>">Name<span class="ms-2"><?= $order === 'asc' ? '<i class="fas fa-sort-up"></i>' : '<i class="fas fa-sort-down"></i>' ?></span></a>
-																</th>
-																<th class="min-w-125px">
-																	<a href="<?= base_url('users?sort=email&order=' . ($order === 'asc' ? 'desc' : 'asc')) ?>">Email<span class="ms-2"><?= $order === 'asc' ? '<i class="fas fa-sort-up"></i>' : '<i class="fas fa-sort-down"></i>' ?></span></a>
-																</th>
-																<th class="min-w-125px">
-																	<a href="<?= base_url('users?sort=number_phone&order=' . ($order === 'asc' ? 'desc' : 'asc')) ?>">Phone<span class="ms-2"><?= $order === 'asc' ? '<i class="fas fa-sort-up"></i>' : '<i class="fas fa-sort-down"></i>' ?></span></a>
-																</th>
-																<th class="min-w-125px">
-																	<a href="<?= base_url('users?sort=address&order=' . ($order === 'asc' ? 'desc' : 'asc')) ?>">Addres<span class="ms-2"><?= $order === 'asc' ? '<i class="fas fa-sort-up"></i>' : '<i class="fas fa-sort-down"></i>' ?></span></a>
-																</th>
-																<th class="min-w-125px">
-																	<a href="<?= base_url('users?sort=password&order=' . ($order === 'asc' ? 'desc' : 'asc')) ?>">Password<span class="ms-2"><?= $order === 'asc' ? '<i class="fas fa-sort-up"></i>' : '<i class="fas fa-sort-down"></i>' ?></span></a>
-																</th>
-																<th class="min-w-125px">
-																	<a href="<?= base_url('users?sort=created_at&order=' . ($order === 'asc' ? 'desc' : 'asc')) ?>">Date of creation<span class="ms-2"><?= $order === 'asc' ? '<i class="fas fa-sort-up"></i>' : '<i class="fas fa-sort-down"></i>' ?></span></a>
-																</th>
-																<th class="text-end min-w-70px">Actions</th>
-															</tr>
+													<tr class="text-start text-gray-400 fw-bolder fs-7 text-uppercase gs-0">
+														<th class="min-w-125px">
+															<a href="<?= base_url('users?sort=id&order=' . ($sort === 'id' && $order === 'asc' ? 'desc' : 'asc')) ?>">
+																ID
+																<?php if ($sort === 'id'): ?>
+																	<span class="ms-2"><?= $order === 'asc' ? '<i class="fas fa-sort-up"></i>' : '<i class="fas fa-sort-down"></i>' ?></span>
+																<?php endif; ?>
+															</a>
+														</th>
+														<th class="min-w-125px">
+															<a href="<?= base_url('users?sort=name&order=' . ($sort === 'name' && $order === 'asc' ? 'desc' : 'asc')) ?>">
+																Name
+																<?php if ($sort === 'name'): ?>
+																	<span class="ms-2"><?= $order === 'asc' ? '<i class="fas fa-sort-up"></i>' : '<i class="fas fa-sort-down"></i>' ?></span>
+																<?php endif; ?>
+															</a>
+														</th>
+														<th class="min-w-125px">
+															<a href="<?= base_url('users?sort=email&order=' . ($sort === 'email' && $order === 'asc' ? 'desc' : 'asc')) ?>">
+																Email
+																<?php if ($sort === 'email'): ?>
+																	<span class="ms-2"><?= $order === 'asc' ? '<i class="fas fa-sort-up"></i>' : '<i class="fas fa-sort-down"></i>' ?></span>
+																<?php endif; ?>
+															</a>
+														</th>
+														<th class="min-w-125px">
+															<a href="<?= base_url('users?sort=number_phone&order=' . ($sort === 'number_phone' && $order === 'asc' ? 'desc' : 'asc')) ?>">
+																Phone
+																<?php if ($sort === 'number_phone'): ?>
+																	<span class="ms-2"><?= $order === 'asc' ? '<i class="fas fa-sort-up"></i>' : '<i class="fas fa-sort-down"></i>' ?></span>
+																<?php endif; ?>
+															</a>
+														</th>
+														<th class="min-w-125px">
+															<a href="<?= base_url('users?sort=address&order=' . ($sort === 'address' && $order === 'asc' ? 'desc' : 'asc')) ?>">
+																Address
+																<?php if ($sort === 'address'): ?>
+																	<span class="ms-2"><?= $order === 'asc' ? '<i class="fas fa-sort-up"></i>' : '<i class="fas fa-sort-down"></i>' ?></span>
+																<?php endif; ?>
+															</a>
+														</th>
+														<th class="min-w-125px">
+															<a href="<?= base_url('users?sort=password&order=' . ($sort === 'password' && $order === 'asc' ? 'desc' : 'asc')) ?>">
+																Password
+																<?php if ($sort === 'password'): ?>
+																	<span class="ms-2"><?= $order === 'asc' ? '<i class="fas fa-sort-up"></i>' : '<i class="fas fa-sort-down"></i>' ?></span>
+																<?php endif; ?>
+															</a>
+														</th>
+														<th class="min-w-125px">
+															<a href="<?= base_url('users?sort=created_at&order=' . ($sort === 'created_at' && $order === 'asc' ? 'desc' : 'asc')) ?>">
+																Date of creation
+																<?php if ($sort === 'created_at'): ?>
+																	<span class="ms-2"><?= $order === 'asc' ? '<i class="fas fa-sort-up"></i>' : '<i class="fas fa-sort-down"></i>' ?></span>
+																<?php endif; ?>
+															</a>
+														</th>
+														<th class="text-end min-w-70px">Actions</th>
+													</tr>
+
 																									
 													</thead>
 												
@@ -512,33 +548,7 @@ License: For each use you must have a valid license purchased only from above li
 									
 									<!--end::Card body-->
 					<!--end::Content-->
-					<!--begin::Footer-->
-					<div class="footer py-4 d-flex flex-lg-column" id="kt_footer">
-						<!--begin::Container-->
-						<div class="container-fluid d-flex flex-column flex-md-row align-items-center justify-content-between">
-							<!--begin::Copyright-->
-							<div class="text-dark order-2 order-md-1">
-								<span class="text-muted fw-bold me-1">2021©</span>
-								<a href="https://keenthemes.com" target="_blank" class="text-gray-800 text-hover-primary">Keenthemes</a>
-							</div>
-							<!--end::Copyright-->
-							<!--begin::Menu-->
-							<ul class="menu menu-gray-600 menu-hover-primary fw-bold order-1">
-								<li class="menu-item">
-									<a href="https://keenthemes.com" target="_blank" class="menu-link px-2">About</a>
-								</li>
-								<li class="menu-item">
-									<a href="https://keenthemes.com/support" target="_blank" class="menu-link px-2">Support</a>
-								</li>
-								<li class="menu-item">
-									<a href="https://1.envato.market/EA4JP" target="_blank" class="menu-link px-2">Purchase</a>
-								</li>
-							</ul>
-							<!--end::Menu-->
-						</div>
-						<!--end::Container-->
-					</div>
-					<!--end::Footer-->
+	
 				</div>
 				<!--end::Wrapper-->
 			</div>

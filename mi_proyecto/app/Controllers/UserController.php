@@ -80,7 +80,7 @@ class UserController extends BaseController
            
         ];
         $data["order"] = $order;
-    
+        $data["sort"] = $sort;
         return view('user_list', $data);
     }
     

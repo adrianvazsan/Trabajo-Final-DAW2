@@ -417,22 +417,48 @@ License: For each use you must have a valid license purchased only from above li
                                 <thead>
 								<tr class="text-start text-gray-400 fw-bolder fs-7 text-uppercase gs-0">
 									<th class="min-w-125px">
-										<a href="<?= base_url('feedback?sort=id&order=' . ($order === 'asc' ? 'desc' : 'asc')) ?>">ID<span class="ms-2"><?= $order === 'asc' ? '<i class="fas fa-sort-up"></i>' : '<i class="fas fa-sort-down"></i>' ?></span></a>
+										<a href="<?= base_url('feedback?sort=id&order=' . ($sort === 'id' && $order === 'asc' ? 'desc' : 'asc')) ?>">
+											ID
+											<?php if ($sort === 'id'): ?>
+												<span class="ms-2"><?= $order === 'asc' ? '<i class="fas fa-sort-up"></i>' : '<i class="fas fa-sort-down"></i>' ?></span>
+											<?php endif; ?>
+										</a>
 									</th>
 									<th class="min-w-125px">
-										<a href="<?= base_url('feedback?sort=name&order=' . ($order === 'asc' ? 'desc' : 'asc')) ?>">Name<span class="ms-2"><?= $order === 'asc' ? '<i class="fas fa-sort-up"></i>' : '<i class="fas fa-sort-down"></i>' ?></span></a>
+										<a href="<?= base_url('feedback?sort=name&order=' . ($sort === 'name' && $order === 'asc' ? 'desc' : 'asc')) ?>">
+											Name
+											<?php if ($sort === 'name'): ?>
+												<span class="ms-2"><?= $order === 'asc' ? '<i class="fas fa-sort-up"></i>' : '<i class="fas fa-sort-down"></i>' ?></span>
+											<?php endif; ?>
+										</a>
 									</th>
 									<th class="min-w-125px">
-										<a href="<?= base_url('feedback?sort=text&order=' . ($order === 'asc' ? 'desc' : 'asc')) ?>">Text<span class="ms-2"><?= $order === 'asc' ? '<i class="fas fa-sort-up"></i>' : '<i class="fas fa-sort-down"></i>' ?></span></a>
+										<a href="<?= base_url('feedback?sort=text&order=' . ($sort === 'text' && $order === 'asc' ? 'desc' : 'asc')) ?>">
+											Text
+											<?php if ($sort === 'text'): ?>
+												<span class="ms-2"><?= $order === 'asc' ? '<i class="fas fa-sort-up"></i>' : '<i class="fas fa-sort-down"></i>' ?></span>
+											<?php endif; ?>
+										</a>
 									</th>
 									<th class="min-w-125px">
-										<a href="<?= base_url('feedback?sort=rating&order=' . ($order === 'asc' ? 'desc' : 'asc')) ?>">Rating<span class="ms-2"><?= $order === 'asc' ? '<i class="fas fa-sort-up"></i>' : '<i class="fas fa-sort-down"></i>' ?></span></a>
+										<a href="<?= base_url('feedback?sort=rating&order=' . ($sort === 'rating' && $order === 'asc' ? 'desc' : 'asc')) ?>">
+											Rating
+											<?php if ($sort === 'rating'): ?>
+												<span class="ms-2"><?= $order === 'asc' ? '<i class="fas fa-sort-up"></i>' : '<i class="fas fa-sort-down"></i>' ?></span>
+											<?php endif; ?>
+										</a>
 									</th>
 									<th class="min-w-125px">
-										<a href="<?= base_url('feedback?sort=created_at&order=' . ($order === 'asc' ? 'desc' : 'asc')) ?>">Date of creation<span class="ms-2"><?= $order === 'asc' ? '<i class="fas fa-sort-up"></i>' : '<i class="fas fa-sort-down"></i>' ?></span></a>
+										<a href="<?= base_url('feedback?sort=created_at&order=' . ($sort === 'created_at' && $order === 'asc' ? 'desc' : 'asc')) ?>">
+											Date of creation
+											<?php if ($sort === 'created_at'): ?>
+												<span class="ms-2"><?= $order === 'asc' ? '<i class="fas fa-sort-up"></i>' : '<i class="fas fa-sort-down"></i>' ?></span>
+											<?php endif; ?>
+										</a>
 									</th>
 									<th class="text-end min-w-70px">Actions</th>
 								</tr>
+
                                 </thead>
                                 <tbody>
                                     <?php foreach ($feedbacks as $feedback): ?>

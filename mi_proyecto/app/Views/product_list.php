@@ -418,25 +418,56 @@ License: For each use you must have a valid license purchased only from above li
 															<thead>
 															<tr class="text-start text-gray-400 fw-bolder fs-7 text-uppercase gs-0">
 																<th class="min-w-125px">
-																	<a href="<?= base_url('products?sort=id&order=' . ($order === 'asc' ? 'desc' : 'asc')) ?>">ID<span class="ms-2"><?= $order === 'asc' ? '<i class="fas fa-sort-up"></i>' : '<i class="fas fa-sort-down"></i>' ?></span></a>
+																	<a href="<?= base_url('products?sort=id&order=' . ($sort === 'id' && $order === 'asc' ? 'desc' : 'asc')) ?>">
+																		ID
+																		<?php if ($sort === 'id'): ?>
+																			<span class="ms-2"><?= $order === 'asc' ? '<i class="fas fa-sort-up"></i>' : '<i class="fas fa-sort-down"></i>' ?></span>
+																		<?php endif; ?>
+																	</a>
 																</th>
 																<th class="min-w-125px">
-																	<a href="<?= base_url('products?sort=product_name&order=' . ($order === 'asc' ? 'desc' : 'asc')) ?>">Name of the Product<span class="ms-2"><?= $order === 'asc' ? '<i class="fas fa-sort-up"></i>' : '<i class="fas fa-sort-down"></i>' ?></span></a>
+																	<a href="<?= base_url('products?sort=product_name&order=' . ($sort === 'product_name' && $order === 'asc' ? 'desc' : 'asc')) ?>">
+																		Name of the Product
+																		<?php if ($sort === 'product_name'): ?>
+																			<span class="ms-2"><?= $order === 'asc' ? '<i class="fas fa-sort-up"></i>' : '<i class="fas fa-sort-down"></i>' ?></span>
+																		<?php endif; ?>
+																	</a>
 																</th>
 																<th class="min-w-125px">
-																	<a href="<?= base_url('products?sort=amount&order=' . ($order === 'asc' ? 'desc' : 'asc')) ?>">Amount<span class="ms-2"><?= $order === 'asc' ? '<i class="fas fa-sort-up"></i>' : '<i class="fas fa-sort-down"></i>' ?></span></a>
+																	<a href="<?= base_url('products?sort=amount&order=' . ($sort === 'amount' && $order === 'asc' ? 'desc' : 'asc')) ?>">
+																		Amount
+																		<?php if ($sort === 'amount'): ?>
+																			<span class="ms-2"><?= $order === 'asc' ? '<i class="fas fa-sort-up"></i>' : '<i class="fas fa-sort-down"></i>' ?></span>
+																		<?php endif; ?>
+																	</a>
 																</th>
 																<th class="min-w-125px">
-																	<a href="<?= base_url('products?sort=origin_product&order=' . ($order === 'asc' ? 'desc' : 'asc')) ?>">Product Origin<span class="ms-2"><?= $order === 'asc' ? '<i class="fas fa-sort-up"></i>' : '<i class="fas fa-sort-down"></i>' ?></span></a>
+																	<a href="<?= base_url('products?sort=origin_product&order=' . ($sort === 'origin_product' && $order === 'asc' ? 'desc' : 'asc')) ?>">
+																		Product Origin
+																		<?php if ($sort === 'origin_product'): ?>
+																			<span class="ms-2"><?= $order === 'asc' ? '<i class="fas fa-sort-up"></i>' : '<i class="fas fa-sort-down"></i>' ?></span>
+																		<?php endif; ?>
+																	</a>
 																</th>
 																<th class="min-w-125px">
-																	<a href="<?= base_url('products?sort=type_product&order=' . ($order === 'asc' ? 'desc' : 'asc')) ?>">Product Type<span class="ms-2"><?= $order === 'asc' ? '<i class="fas fa-sort-up"></i>' : '<i class="fas fa-sort-down"></i>' ?></span></a>
+																	<a href="<?= base_url('products?sort=type_product&order=' . ($sort === 'type_product' && $order === 'asc' ? 'desc' : 'asc')) ?>">
+																		Product Type
+																		<?php if ($sort === 'type_product'): ?>
+																			<span class="ms-2"><?= $order === 'asc' ? '<i class="fas fa-sort-up"></i>' : '<i class="fas fa-sort-down"></i>' ?></span>
+																		<?php endif; ?>
+																	</a>
 																</th>
 																<th class="min-w-125px">
-																	<a href="<?= base_url('products?sort=created_at&order=' . ($order === 'asc' ? 'desc' : 'asc')) ?>">Date of creation<span class="ms-2"><?= $order === 'asc' ? '<i class="fas fa-sort-up"></i>' : '<i class="fas fa-sort-down"></i>' ?></span></a>
+																	<a href="<?= base_url('products?sort=created_at&order=' . ($sort === 'created_at' && $order === 'asc' ? 'desc' : 'asc')) ?>">
+																		Date of creation
+																		<?php if ($sort === 'created_at'): ?>
+																			<span class="ms-2"><?= $order === 'asc' ? '<i class="fas fa-sort-up"></i>' : '<i class="fas fa-sort-down"></i>' ?></span>
+																		<?php endif; ?>
+																	</a>
 																</th>
 																<th class="text-end min-w-70px">Acciones</th>
 															</tr>
+
 													
 															</thead>
 															<tbody>
