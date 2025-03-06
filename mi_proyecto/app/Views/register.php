@@ -41,11 +41,25 @@ License: For each use you must have a valid license purchased only from above li
 			<!--begin::Authentication - Sign-up -->
 			<div class="d-flex flex-column flex-column-fluid bgi-position-y-bottom position-x-center bgi-no-repeat bgi-size-contain bgi-attachment-fixed" style="background-image: url('<?= base_url('assets/media/illustrations/sketchy-1/14.png')?>')">
 				<!--begin::Content-->
-				<div class="d-flex flex-center flex-column flex-column-fluid p-10 pb-lg-20">
-						<?php if (session()->getFlashdata('success')): ?>
-                            <div class="alert alert-success">
-                                <?= session()->getFlashdata('success') ?>
-                            </div>
+						<?php if (session()->has('success')): ?>
+							<div 
+							class="alert alert-success alert-dismissible fade show position-fixed top-0 end-0 m-3" 
+							role="alert" 
+							style="z-index: 9999;" 
+							id="alert-temp"
+							>
+								<?= session('success') ?>
+								<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+							</div>
+									<script>
+								// Desaparece automáticamente tras 3 segundos
+								setTimeout(() => {
+									const alert = document.getElementById('alert-temp');
+									if (alert) {
+										alert.remove();
+									}
+								}, 3000);
+							</script>
                         <?php endif; ?>
                         <?php if (isset($validation)): ?>
                             <div class="alert alert-danger">

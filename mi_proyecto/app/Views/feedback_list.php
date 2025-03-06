@@ -44,6 +44,22 @@ License: For each use you must have a valid license purchased only from above li
             padding: 5px;
             box-sizing: border-box;
         }
+
+		.breadcrumb {
+    background-color: #f8f9fa;
+    padding: 8px 16px;
+    border-radius: 5px;
+}
+
+.breadcrumb-item a {
+    text-decoration: none;
+    color: #007bff;
+}
+
+.breadcrumb-item a:hover {
+    text-decoration: underline;
+}
+
     </style>
 	</head>
 	<!--end::Head-->
@@ -278,6 +294,7 @@ License: For each use you must have a valid license purchased only from above li
 								<h1 class="mt-5">Feedback</h1>
 								<!-- Aquí puedes añadir más contenido -->
 							</div>
+
 							<div class="d-flex align-items-stretch justify-content-between flex-lg-grow-1">
 								<!--begin::Navbar-->
 								<div class="d-flex align-items-stretch" id="kt_header_nav">
@@ -309,207 +326,267 @@ License: For each use you must have a valid license purchased only from above li
 						<!--end::Container-->
 					</div>
 					<!--end::Header-->
+					<nav aria-label="breadcrumb">
+								<ol class="breadcrumb">
+									<li class="breadcrumb-item">Dashboard</li>
+									<li class="breadcrumb-item"><a href="<?= base_url('feedback') ?>">Feedback</a></li>
+								</ol>
+							</nav>
 					<!--begin::Content-->
+					<div class="post d-flex flex-column-fluid" id="kt_post">
+						<!--begin::Container-->
+						<div id="kt_content_container" class="container-fluid">
+							<!--begin::Card-->
+							<div class="card">
 														<!--begin::Card header-->
-														<div class="card-header border-0 pt-6">
-										<!--begin::Card title-->
-										<div class="card-title">
+																	<div class="card-header border-0 pt-6">
+																	<!--begin::Card title-->
+																	<div class="card-title">
+																		
+																	</div>
+																	<!--begin::Card title-->
+																	<!--begin::Card toolbar-->
+																	<div class="card-toolbar">
+																		<!--begin::Toolbar-->
+																		<div class="d-flex justify-content-end" data-kt-customer-table-toolbar="base">
+																			<!--begin::Filter-->
+																			<button type="button" class="btn btn-light-primary me-3" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+																			<!--begin::Svg Icon | path: icons/duotune/general/gen031.svg-->
+																			<span class="svg-icon svg-icon-2">
+																				<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+																					<path d="M19.0759 3H4.72777C3.95892 3 3.47768 3.83148 3.86067 4.49814L8.56967 12.6949C9.17923 13.7559 9.5 14.9582 9.5 16.1819V19.5072C9.5 20.2189 10.2223 20.7028 10.8805 20.432L13.8805 19.1977C14.2553 19.0435 14.5 18.6783 14.5 18.273V13.8372C14.5 12.8089 14.8171 11.8056 15.408 10.964L19.8943 4.57465C20.3596 3.912 19.8856 3 19.0759 3Z" fill="black" />
+																				</svg>
+																			</span>
+																			<!--end::Svg Icon-->Filter</button>
+																			<!--begin::Menu 1-->
+																			<div class="menu menu-sub menu-sub-dropdown w-300px w-md-325px" data-kt-menu="true" id="kt-toolbar-filter">
+																				<!--begin::Header-->
+																				<div class="px-7 py-5">
+																					<div class="fs-4 text-dark fw-bolder">Filter Options</div>
+																				</div>
+																				<!--end::Header-->
+																				<!--begin::Separator-->
+																				<div class="separator border-gray-200"></div>
+																				<!--end::Separator-->
+																				<!--begin::Content-->
+																				<div class="px-7 py-5">
+																					<!--begin::Input group-->
+																					<div class="mb-10">
+																						<!--begin::Label-->
+																						<label class="form-label fs-5 fw-bold mb-3">Month:</label>
+																						<!--end::Label-->
+																						<!--begin::Input-->
+																						<select class="form-select form-select-solid fw-bolder" data-kt-select2="true" data-placeholder="Select option" data-allow-clear="true" data-kt-customer-table-filter="month" data-dropdown-parent="#kt-toolbar-filter">
+																							<option></option>
+																							<option value="nam">Name</option>
+																							<option value="txt">Text</option>
+																							<option value="rat">Rating</option>
+																						</select>
+																						<!--end::Input-->
+																					</div>
+																					<!--end::Input group-->
+																					<!--begin::Input group-->
+																					<form method="get" action="<?= base_url('feedback') ?>" class="d-flex mb-3">
+																					<div class="container mt-5">
+																					<div class="mb-3">
+																						<input type="text" name="search" class="form-control form-control-solid w-250px ps-15" placeholder="Buscar Feedbacks" value="<?= esc($filters['search'] ?? '') ?>" />
+																					</div>
+																					<div>
+																						<button type="submit" class="btn btn-primary btn-sm me-2">Filtrar</button>
+																						<a href="<?= base_url('feedback') ?>" class="btn btn-secondary btn-sm">Clear</a>
+																					</div>
+																					</div>
+																					</form>
+																					<!--end::Input group-->
+																					<!--begin::Actions-->
+																					<div class="d-flex justify-content-end">
+																						<button type="reset" class="btn btn-light btn-active-light-primary me-2" data-kt-menu-dismiss="true" data-kt-customer-table-filter="reset">Reset</button>
+																						<button type="submit" class="btn btn-primary" data-kt-menu-dismiss="true" data-kt-customer-table-filter="filter">Apply</button>
+																					</div>
+																					<!--end::Actions-->
+																				</div>
+																				<!--end::Content-->
+																			</div>
+																			<!--end::Menu 1-->
+																			<!--end::Filter-->
+																			<!--begin::Export-->
+																			<a href="<?= base_url('feedback/export') ?>" class="btn btn-primary">Export</a>
+																			<!--end::Add customer-->
+																		</div>
+																		<!--end::Toolbar-->
+																		<!--begin::Group actions-->
+																		<div class="d-flex justify-content-end align-items-center d-none" data-kt-customer-table-toolbar="selected">
+																			<div class="fw-bolder me-5">
+																			<span class="me-2" data-kt-customer-table-select="selected_count"></span>Selected</div>
+																			<button type="button" class="btn btn-danger" data-kt-customer-table-select="delete_selected">Delete Selected</button>
+																		</div>
+																		<!--end::Group actions-->
+																	</div>
+																	<!--end::Card toolbar-->
+																</div>
+																<!--end::Card header-->
+																<?php if (session()->has('success')): ?>
+																	<div 
+																	class="alert alert-success alert-dismissible fade show position-fixed top-0 end-0 m-3" 
+																	role="alert" 
+																	style="z-index: 9999;" 
+																	id="alert-temp"
+																	>
+																		<?= session('success') ?>
+																		<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+																	</div>
+
+																	<script>
+																		// Desaparece automáticamente tras 3 segundos
+																		setTimeout(() => {
+																			const alert = document.getElementById('alert-temp');
+																			if (alert) {
+																				alert.remove();
+																			}
+																		}, 3000);
+																	</script>
+																<?php endif; ?>
+																<!--begin::Card body-->
+																
+																<div class="card-body pt-0">
+																<?php if (session()->get('id_rol') == 1): // Solo los administradores pueden ver estos botones ?>
+																	<a href="<?= base_url('feedback/save') ?>" class="btn btn-primary mb-3">
+																		<i class="fas fa-plus"></i> Created Feedback
+																	</a>
+																<?php endif; ?>
+
+												<!--begin::Search-->
 											
-										</div>
-										<!--begin::Card title-->
-										<!--begin::Card toolbar-->
-										<div class="card-toolbar">
-											<!--begin::Toolbar-->
-											<div class="d-flex justify-content-end" data-kt-customer-table-toolbar="base">
-												<!--begin::Filter-->
-												<button type="button" class="btn btn-light-primary me-3" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
-												<!--begin::Svg Icon | path: icons/duotune/general/gen031.svg-->
-												<span class="svg-icon svg-icon-2">
-													<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-														<path d="M19.0759 3H4.72777C3.95892 3 3.47768 3.83148 3.86067 4.49814L8.56967 12.6949C9.17923 13.7559 9.5 14.9582 9.5 16.1819V19.5072C9.5 20.2189 10.2223 20.7028 10.8805 20.432L13.8805 19.1977C14.2553 19.0435 14.5 18.6783 14.5 18.273V13.8372C14.5 12.8089 14.8171 11.8056 15.408 10.964L19.8943 4.57465C20.3596 3.912 19.8856 3 19.0759 3Z" fill="black" />
-													</svg>
-												</span>
-												<!--end::Svg Icon-->Filter</button>
-												<!--begin::Menu 1-->
-												<div class="menu menu-sub menu-sub-dropdown w-300px w-md-325px" data-kt-menu="true" id="kt-toolbar-filter">
-													<!--begin::Header-->
-													<div class="px-7 py-5">
-														<div class="fs-4 text-dark fw-bolder">Filter Options</div>
-													</div>
-													<!--end::Header-->
-													<!--begin::Separator-->
-													<div class="separator border-gray-200"></div>
-													<!--end::Separator-->
-													<!--begin::Content-->
-													<div class="px-7 py-5">
-														<!--begin::Input group-->
+												<!--end::Search-->
+
+												<?php if (!empty($feedbacks) && is_array($feedbacks)): ?>
+													<div id="feedback-list">
+														<div class="table-responsive">
+															<table class="table align-middle table-row-dashed fs-6 gy-5" id="kt_customers_table">
+																<thead>
+																	<tr class="text-start text-gray-400 fw-bolder fs-7 text-uppercase gs-0">
+																		<th class="min-w-125px">
+																			<a href="<?= base_url('feedback?sort=name&order=' . ($sort === 'name' && $order === 'asc' ? 'desc' : 'asc')) ?>">
+																				Name
+																				<?php if ($sort === 'name'): ?>
+																					<span class="ms-2"><?= $order === 'asc' ? '<i class="fas fa-sort-up"></i>' : '<i class="fas fa-sort-down"></i>' ?></span>
+																				<?php endif; ?>
+																			</a>
+																		</th>
+																		<th class="min-w-125px">
+																			<a href="<?= base_url('feedback?sort=text&order=' . ($sort === 'text' && $order === 'asc' ? 'desc' : 'asc')) ?>">
+																				Text
+																				<?php if ($sort === 'text'): ?>
+																					<span class="ms-2"><?= $order === 'asc' ? '<i class="fas fa-sort-up"></i>' : '<i class="fas fa-sort-down"></i>' ?></span>
+																				<?php endif; ?>
+																			</a>
+																		</th>
+																		<th class="min-w-125px">
+																			<a href="<?= base_url('feedback?sort=rating&order=' . ($sort === 'rating' && $order === 'asc' ? 'desc' : 'asc')) ?>">
+																				Rating
+																				<?php if ($sort === 'rating'): ?>
+																					<span class="ms-2"><?= $order === 'asc' ? '<i class="fas fa-sort-up"></i>' : '<i class="fas fa-sort-down"></i>' ?></span>
+																				<?php endif; ?>
+																			</a>
+																		</th>
+																		<th class="min-w-125px">
+																			<a href="<?= base_url('feedback?sort=created_at&order=' . ($sort === 'created_at' && $order === 'asc' ? 'desc' : 'asc')) ?>">
+																				Date of creation
+																				<?php if ($sort === 'created_at'): ?>
+																					<span class="ms-2"><?= $order === 'asc' ? '<i class="fas fa-sort-up"></i>' : '<i class="fas fa-sort-down"></i>' ?></span>
+																				<?php endif; ?>
+																			</a>
+																		</th>
+																		<th class="text-end min-w-70px">Actions</th>
+																	</tr>
+																</thead>
+																<tbody>
+																	<?php foreach ($feedbacks as $feedback): ?>
+																		<tr>
+																			<td><?= esc(!empty($feedback['name']) ? $feedback['name'] : '-') ?></td>
+																			<td><?= esc(!empty($feedback['text']) ? $feedback['text'] : '-') ?></td>
+																			<td><?= esc(!empty($feedback['rating']) ? $feedback['rating'] : '-') ?></td>
+																			<td><?= esc(!empty($feedback['created_at']) ? $feedback['created_at'] : '-') ?></td>
+																			<td class="text-center">
+																				<?php if (session()->get('id_rol') == 1): ?>
+																					<a href="<?= base_url('feedback/save/' . $feedback['id']) ?>" class="btn btn-warning btn-sm">
+																						<i class="fas fa-edit"></i> Edit
+																					</a>
+																					<a href="<?= base_url('feedback/delete/' . $feedback['id']) ?>" 
+																					class="btn btn-danger btn-sm"
+																					onclick="return confirm('Are you sure to remove this feedback?');">
+																						<i class="fas fa-trash"></i> Delete
+																					</a>
+																				<?php endif; ?>
+																			</td>
+																		</tr>
+																	<?php endforeach; ?>
+																</tbody>
+															</table>
+														</div>
+														<label for="perPage">Feedback per page:</label>
 														<div class="mb-10">
-															<!--begin::Label-->
-															<label class="form-label fs-5 fw-bold mb-3">Month:</label>
-															<!--end::Label-->
-															<!--begin::Input-->
-															<select class="form-select form-select-solid fw-bolder" data-kt-select2="true" data-placeholder="Select option" data-allow-clear="true" data-kt-customer-table-filter="month" data-dropdown-parent="#kt-toolbar-filter">
-																<option></option>
-																<option value="id">ID</option>
-																<option value="nam">Name</option>
-																<option value="txt">Text</option>
-																<option value="rat">Rating</option>
+															<select id="perPage" class="form-select form-select-sm w-auto">
+																<option value="5" <?= ($perPage == 5) ? 'selected' : '' ?>>5</option>
+																<option value="10" <?= ($perPage == 10) ? 'selected' : '' ?>>10</option>
+																<option value="15" <?= ($perPage == 15) ? 'selected' : '' ?>>15</option>
+																<option value="20" <?= ($perPage == 20) ? 'selected' : '' ?>>20</option>
 															</select>
-															<!--end::Input-->
+															
 														</div>
-														<!--end::Input group-->
-														<!--begin::Input group-->
-														<form method="get" action="<?= base_url('feedback') ?>" class="d-flex mb-3">
-														<div class="container mt-5">
-														<div class="mb-3">
-															<input type="text" name="search" class="form-control form-control-solid w-250px ps-15" placeholder="Buscar Feedbacks" value="<?= esc($filters['search'] ?? '') ?>" />
+														<div class="d-flex justify-content-center">
+															<?= $pager->links() ?>
 														</div>
-														<div>
-															<button type="submit" class="btn btn-primary btn-sm me-2">Filtrar</button>
-															<a href="<?= base_url('feedback') ?>" class="btn btn-secondary btn-sm">Clear</a>
-														</div>
-														</div>
-														</form>
-														<!--end::Input group-->
-														<!--begin::Actions-->
-														<div class="d-flex justify-content-end">
-															<button type="reset" class="btn btn-light btn-active-light-primary me-2" data-kt-menu-dismiss="true" data-kt-customer-table-filter="reset">Reset</button>
-															<button type="submit" class="btn btn-primary" data-kt-menu-dismiss="true" data-kt-customer-table-filter="filter">Apply</button>
-														</div>
-														<!--end::Actions-->
 													</div>
-													<!--end::Content-->
-												</div>
-												<!--end::Menu 1-->
-												<!--end::Filter-->
-												<!--begin::Export-->
-												<a href="<?= base_url('feedback/export') ?>" class="btn btn-primary">Export</a>
-												<!--end::Add customer-->
-											</div>
-											<!--end::Toolbar-->
-											<!--begin::Group actions-->
-											<div class="d-flex justify-content-end align-items-center d-none" data-kt-customer-table-toolbar="selected">
-												<div class="fw-bolder me-5">
-												<span class="me-2" data-kt-customer-table-select="selected_count"></span>Selected</div>
-												<button type="button" class="btn btn-danger" data-kt-customer-table-select="delete_selected">Delete Selected</button>
-											</div>
-											<!--end::Group actions-->
-										</div>
-										<!--end::Card toolbar-->
-									</div>
-									<!--end::Card header-->
-									<!--begin::Card body-->
-									
-                                    <div class="card-body pt-0">
-									<?php if (session()->get('id_rol') == 1): // Solo los administradores pueden ver estos botones ?>
-										<a href="<?= base_url('feedback/save') ?>" class="btn btn-primary mb-3">
-											<i class="fas fa-plus"></i> Created Feedback
-										</a>
-									<?php endif; ?>
-
-                    <!--begin::Search-->
-                   
-                    <!--end::Search-->
-
-                    <?php if (!empty($feedbacks) && is_array($feedbacks)): ?>
-                        <div class="table-responsive">
-                            <table class="table align-middle table-row-dashed fs-6 gy-5" id="kt_customers_table">
-                                <thead>
-								<tr class="text-start text-gray-400 fw-bolder fs-7 text-uppercase gs-0">
-									<th class="min-w-125px">
-										<a href="<?= base_url('feedback?sort=id&order=' . ($sort === 'id' && $order === 'asc' ? 'desc' : 'asc')) ?>">
-											ID
-											<?php if ($sort === 'id'): ?>
-												<span class="ms-2"><?= $order === 'asc' ? '<i class="fas fa-sort-up"></i>' : '<i class="fas fa-sort-down"></i>' ?></span>
-											<?php endif; ?>
-										</a>
-									</th>
-									<th class="min-w-125px">
-										<a href="<?= base_url('feedback?sort=name&order=' . ($sort === 'name' && $order === 'asc' ? 'desc' : 'asc')) ?>">
-											Name
-											<?php if ($sort === 'name'): ?>
-												<span class="ms-2"><?= $order === 'asc' ? '<i class="fas fa-sort-up"></i>' : '<i class="fas fa-sort-down"></i>' ?></span>
-											<?php endif; ?>
-										</a>
-									</th>
-									<th class="min-w-125px">
-										<a href="<?= base_url('feedback?sort=text&order=' . ($sort === 'text' && $order === 'asc' ? 'desc' : 'asc')) ?>">
-											Text
-											<?php if ($sort === 'text'): ?>
-												<span class="ms-2"><?= $order === 'asc' ? '<i class="fas fa-sort-up"></i>' : '<i class="fas fa-sort-down"></i>' ?></span>
-											<?php endif; ?>
-										</a>
-									</th>
-									<th class="min-w-125px">
-										<a href="<?= base_url('feedback?sort=rating&order=' . ($sort === 'rating' && $order === 'asc' ? 'desc' : 'asc')) ?>">
-											Rating
-											<?php if ($sort === 'rating'): ?>
-												<span class="ms-2"><?= $order === 'asc' ? '<i class="fas fa-sort-up"></i>' : '<i class="fas fa-sort-down"></i>' ?></span>
-											<?php endif; ?>
-										</a>
-									</th>
-									<th class="min-w-125px">
-										<a href="<?= base_url('feedback?sort=created_at&order=' . ($sort === 'created_at' && $order === 'asc' ? 'desc' : 'asc')) ?>">
-											Date of creation
-											<?php if ($sort === 'created_at'): ?>
-												<span class="ms-2"><?= $order === 'asc' ? '<i class="fas fa-sort-up"></i>' : '<i class="fas fa-sort-down"></i>' ?></span>
-											<?php endif; ?>
-										</a>
-									</th>
-									<th class="text-end min-w-70px">Actions</th>
-								</tr>
-
-                                </thead>
-                                <tbody>
-                                    <?php foreach ($feedbacks as $feedback): ?>
-                                        <tr>
-                                            <td><?= esc($feedback['id']) ?></td>
-                                            <td><?= esc($feedback['name']) ?></td>
-                                            <td><?= esc($feedback['text']) ?></td>
-                                            <td><?= esc($feedback['rating']) ?></td>
-                                            <td><?= esc($feedback['created_at']) ?></td>
-                                            <td class="text-center">
-												<?php if (session()->get('id_rol') == 1): // Solo los administradores pueden ver estos botones ?>
-													<a href="<?= base_url('feedback/save/' . $feedback['id']) ?>" class="btn btn-warning btn-sm">
-														<i class="fas fa-edit"></i> Edit
-													</a>
-													<a href="<?= base_url('feedback/delete/' . $feedback['id']) ?>" 
-													class="btn btn-danger btn-sm"
-													onclick="return confirm('Are you sure to remove this feedback?');">
-														<i class="fas fa-trash"></i> Delete
-													</a>
+												<?php else: ?>
+													<p class="text-center text-muted">No feedbacks have been recorded.</p>
 												<?php endif; ?>
-											</td>
-
-                                        </tr>
-                                    <?php endforeach; ?>
-                                </tbody>
-                            </table>
-                        </div>
-                        <div class="d-flex justify-content-center">
-                            <?= $pager->links() ?>
-                        </div>
-                    <?php else: ?>
-                        <p class="text-center text-muted">No feedbacks have been recorded.</p>
-                    <?php endif; ?>
-                </div>
-            </div>
-        </div>
-    </div>
-											<!--end::Table body-->
-
-										<!--end::Table-->
-									
-									<!--end::Card body-->
-					<!--end::Content-->
-					<!--begin::Footer-->
-
-					<!--end::Footer-->
+						
+																				<!--end::Table body-->
+														<!--end::Table-->
+										
+										
+									</div>
+								</div>										
+							</div>
+							
 				</div>
 				<!--end::Wrapper-->
+				<!--end::Card body-->
+										<!--end::Content-->
+										<!--begin::Footer-->
+										<div class="footer py-4 d-flex flex-lg-column" id="kt_footer">
+											<!--begin::Container-->
+											<div class="container-fluid d-flex flex-column flex-md-row align-items-center justify-content-between">
+												<!--begin::Copyright-->
+												<div class="text-dark order-2 order-md-1">
+													<span class="text-muted fw-bold me-1">2021©</span>
+													<a href="https://keenthemes.com" target="_blank" class="text-gray-800 text-hover-primary">Keenthemes</a>
+												</div>
+												<!--end::Copyright-->
+												<!--begin::Menu-->
+												<ul class="menu menu-gray-600 menu-hover-primary fw-bold order-1">
+													<li class="menu-item">
+														<a href="https://keenthemes.com" target="_blank" class="menu-link px-2">About</a>
+													</li>
+													<li class="menu-item">
+														<a href="https://keenthemes.com/support" target="_blank" class="menu-link px-2">Support</a>
+													</li>
+													<li class="menu-item">
+														<a href="https://1.envato.market/EA4JP" target="_blank" class="menu-link px-2">Purchase</a>
+													</li>
+												</ul>
+												<!--end::Menu-->
+											</div>
+											<!--end::Container-->
+										</div>
+										<!--end::Footer-->
+										<!--end::Footer-->
 			</div>
+			
 			<!--end::Page-->
 		</div>
+		
 		<!--end::Root-->
 		<!--begin::Drawers-->
 		<!--begin::Activities drawer-->
@@ -3670,6 +3747,78 @@ License: For each use you must have a valid license purchased only from above li
 			<!--end::Svg Icon-->
 		</div>
 		<!--end::Scrolltop-->
+		<script>
+			document.getElementById("perPage").addEventListener("change", function() {
+				let perPage = this.value;
+				// Construir la URL con el parámetro perPage
+				let requestUrl = window.location.pathname + '?perPage=' + perPage;
+				
+				fetch(requestUrl, {
+					headers: {
+						'X-Requested-With': 'XMLHttpRequest'
+					}
+				})
+				.then(response => response.text())
+				.then(html => {
+					// Crear un elemento temporal para parsear la respuesta HTML
+					let tempDiv = document.createElement('div');
+					tempDiv.innerHTML = html;
+					
+					// Extraer el contenido del contenedor con id "feedback-list"
+					let newContent = tempDiv.querySelector('#feedback-list');
+					if (newContent) {
+						document.getElementById("feedback-list").innerHTML = newContent.innerHTML;
+					}
+					
+					// Actualizar la URL sin recargar la página
+					let currentUrl = new URL(window.location.href);
+					currentUrl.searchParams.set('perPage', perPage);
+					window.history.pushState({}, '', currentUrl);
+					
+					// Asegurar que el select mantiene el valor seleccionado
+					document.getElementById("perPage").value = perPage;
+				})
+				.catch(error => {
+					console.error('Error al cargar los datos:', error);
+				});
+			});
+		</script>
+		<script>
+document.addEventListener('change', function(e) {
+    if (e.target && e.target.id === 'perPage') {
+        let perPage = e.target.value;
+        let requestUrl = window.location.pathname + '?perPage=' + perPage;
+        
+        fetch(requestUrl, {
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest'
+            }
+        })
+        .then(response => response.text())
+        .then(html => {
+            // Crea un contenedor temporal para parsear el HTML recibido
+            let tempDiv = document.createElement('div');
+            tempDiv.innerHTML = html;
+            
+            // Extrae el contenido del contenedor con id "feedback-list"
+            let newContent = tempDiv.querySelector('#feedback-list');
+            if (newContent) {
+                document.getElementById("feedback-list").innerHTML = newContent.innerHTML;
+            }
+            
+            // Actualiza la URL sin recargar la página
+            let currentUrl = new URL(window.location.href);
+            currentUrl.searchParams.set('perPage', perPage);
+            window.history.pushState({}, '', currentUrl);
+        })
+        .catch(error => {
+            console.error('Error al cargar los datos:', error);
+        });
+    }
+});
+</script>
+
+
 		<!--end::Main-->
 		<script>var hostUrl = "assets/";</script>
 		<!--begin::Javascript-->

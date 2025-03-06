@@ -14,14 +14,14 @@ class ProductController extends BaseController
         $session = session();
         
         if (!$session->has('user_id')) {
-            return redirect()->to('/login')->with('error', 'Debes iniciar sesión primero.');
+            return redirect()->to('/login')->with('error', 'You must log in first.');
         }
         
         $userModel = new UserModel();
         $user = $userModel->find($session->get('user_id'));
 
         if (!$user) {
-            return redirect()->to('/login')->with('error', 'Usuario no encontrado.');
+            return redirect()->to('/login')->with('error', 'User not found.');
         }
 
         $data = [
@@ -39,7 +39,8 @@ class ProductController extends BaseController
         $order = $this->request->getGet('order') ?? 'asc';
     
         // Configuración de la paginación
-        $perPage = 3;
+        $perPage = $this->request->getGet('perPage') ?? 3;
+        $perPage = is_numeric($perPage) ? (int)$perPage : 3;
     
         // Aplicar filtros
         $query = $productModel;
@@ -62,6 +63,7 @@ class ProductController extends BaseController
         $data["filters"] = ['search' => $search]; // Pasamos el filtro de búsqueda a la vista
         $data["order"] = $order; // Pasamos el orden a la vista
         $data["sort"] = $sort; // Pasamos la columna de orden a la vista
+        $data["perPage"]  = $perPage;
         return view('product_list', $data);
     }
 
@@ -100,11 +102,11 @@ class ProductController extends BaseController
                 if ($id) {
                     // Actualizar producto existente
                     $productModel->update($id, $productData);
-                    $message = 'Producto actualizado correctamente.';
+                    $message = 'Product updated correctly.';
                 } else {
                     // Crear nuevo producto
                     $productModel->save($productData);
-                    $message = 'Producto creado correctamente.';
+                    $message = 'Product created correctly.';
                 }
 
                 // Redirigir al listado con un mensaje de éxito
@@ -127,12 +129,12 @@ class ProductController extends BaseController
             if ($product) {
                 // Eliminar el producto
                 $productModel->delete($id);
-                return redirect()->to('/products')->with('success', 'Producto eliminado correctamente.');
+                return redirect()->to('/products')->with('success', 'Product disposed of correctly.');
             } else {
-                return redirect()->to('/products')->with('error', 'Producto no encontrado.');
+                return redirect()->to('/products')->with('error', 'Product not found.');
             }
         } else {
-            return redirect()->to('/products')->with('error', 'ID de producto inválido.');
+            return redirect()->to('/products')->with('error', 'Invalid product ID.');
         }
     }
 
@@ -152,7 +154,7 @@ class ProductController extends BaseController
     $output = fopen('php://output', 'w');
 
     // Escribir la fila de cabecera
-    fputcsv($output, ['ID', 'Nombre del Producto', 'Cantidad', 'Origen del Producto', 'Tipo de Producto', 'Fecha de Creación']);
+    fputcsv($output, ['ID', 'product_name', 'Cantidad', 'origin_product', 'type_product', 'created_at']);
 
     // Escribir los datos de los productos
     foreach ($products as $product) {
