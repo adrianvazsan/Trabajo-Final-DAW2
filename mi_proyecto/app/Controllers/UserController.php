@@ -41,29 +41,36 @@ class UserController extends BaseController
     
         // Capturar filtros desde la URL (GET)
         $search = $this->request->getGet('search');
-        $archived = $this->request->getGet('archived') ?? 'all'; // 'all' por defecto
-        $sort = $this->request->getGet('sort') ?? 'id';
+        $archived = $this->request->getGet('archived') ?? 'all';
+        $sort = $this->request->getGet('sort') ?? 'name'; // Nombre como columna por defecto
         $order = $this->request->getGet('order') ?? 'asc';
+        $perPage = $this->request->getGet('perPage') ?? 3;
+        $perPage = is_numeric($perPage) ? (int)$perPage : 3; // Validación
+        $page = $this->request->getGet('page') ?: 1;
     
-        // Configuración de la paginación
-        $perPage = 3;
+        // Validar columnas permitidas para ordenación
+        $allowedColumns = ['id', 'name', 'email', 'created_at', 'number_phone'];
+        if (!in_array($sort, $allowedColumns)) {
+            $sort = 'name';
+        }
     
         // Iniciar la consulta
         $query = $userModel;
     
         // Aplicar filtro de "archivados"
         if ($archived === '0') {
-            $query = $query->where('archivado', 0); // Usuarios activos
+            $query = $query->where('archivado', 0);
         } elseif ($archived === '1') {
-            $query = $query->where('archivado', 1); // Usuarios archivados
+            $query = $query->where('archivado', 1);
         }
     
-        // Aplicar búsqueda dentro del filtro seleccionado
+        // Aplicar búsqueda en múltiples columnas
         if (!empty($search)) {
             $query = $query->groupStart()
                            ->like('id', $search)
                            ->orLike('name', $search)
                            ->orLike('email', $search)
+                           ->orLike('number_phone', $search)
                            ->orLike('created_at', $search)
                            ->groupEnd();
         }
@@ -72,17 +79,22 @@ class UserController extends BaseController
         $query = $query->orderBy($sort, $order);
     
         // Obtener usuarios paginados
-        $data["users"] = $query->paginate($perPage);
+        $data["users"] = $query->paginate($perPage, 'default', $page);
         $data["pager"] = $userModel->pager;
+    
+        // Pasar los filtros y datos a la vista
         $data["filters"] = [
             'search' => $search,
             'archived' => $archived,
-           
         ];
         $data["order"] = $order;
         $data["sort"] = $sort;
+        $data["perPage"] = $perPage;
+        $data["page"] = $page;
+    
         return view('user_list', $data);
     }
+    
     
 
 
@@ -192,7 +204,45 @@ class UserController extends BaseController
 public function exportCSV()
 {
     $userModel = new UserModel();
-    $users = $userModel->findAll();
+
+    // Capturar parámetros de ordenación y filtros desde la URL (GET)
+    $search = $this->request->getGet('search');
+    $archived = $this->request->getGet('archived') ?? 'all';
+    $sort = $this->request->getGet('sort') ?? 'name';
+    $order = $this->request->getGet('order') ?? 'asc';
+
+    // Validar columnas permitidas para ordenación
+    $allowedColumns = ['id', 'name', 'email', 'created_at', 'number_phone'];
+    if (!in_array($sort, $allowedColumns)) {
+        $sort = 'name';
+    }
+
+    // Iniciar la consulta
+    $query = $userModel;
+
+    // Aplicar filtro de "archivados"
+    if ($archived === '0') {
+        $query = $query->where('archivado', 0);
+    } elseif ($archived === '1') {
+        $query = $query->where('archivado', 1);
+    }
+
+    // Aplicar búsqueda en múltiples columnas
+    if (!empty($search)) {
+        $query = $query->groupStart()
+                       ->like('id', $search)
+                       ->orLike('name', $search)
+                       ->orLike('email', $search)
+                       ->orLike('number_phone', $search)
+                       ->orLike('created_at', $search)
+                       ->groupEnd();
+    }
+
+    // Aplicar ordenación
+    $query = $query->orderBy($sort, $order);
+
+    // Obtener los usuarios con la ordenación aplicada
+    $users = $query->findAll();
 
     // Nombre del archivo CSV
     $filename = 'users_' . date('Ymd') . '.csv';
@@ -205,7 +255,7 @@ public function exportCSV()
     $output = fopen('php://output', 'w');
 
     // Escribir la fila de cabecera
-    fputcsv($output, ['ID', 'Name', 'Email', 'Number_phone', 'reated_at', 'ID Role']);
+    fputcsv($output, ['ID', 'Name', 'Email', 'Number_phone', 'Created_at', 'ID Role']);
 
     // Escribir los datos de los usuarios
     foreach ($users as $user) {
@@ -223,5 +273,6 @@ public function exportCSV()
     fclose($output);
     exit;
 }
+
 
 }
