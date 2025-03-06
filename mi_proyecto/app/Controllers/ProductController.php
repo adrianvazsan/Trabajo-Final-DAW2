@@ -61,6 +61,7 @@ class ProductController extends BaseController
         $data["pager"] = $productModel->pager;
         $data["filters"] = ['search' => $search]; // Pasamos el filtro de búsqueda a la vista
         $data["order"] = $order; // Pasamos el orden a la vista
+        $data["sort"] = $sort; // Pasamos la columna de orden a la vista
         return view('product_list', $data);
     }
 
