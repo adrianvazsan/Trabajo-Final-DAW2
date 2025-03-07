@@ -123,7 +123,7 @@ License: For each use you must have a valid license purchased only from above li
 								</div>
 								<!--Sección de Reservas-->
 								<div class="menu-item">
-									<a class="menu-link" href="<?= base_url("products")?>">
+									<a class="menu-link active" href="<?= base_url("products")?>">
 										<span class="menu-icon">
 											<!--begin::Svg Icon | path: icons/duotune/art/art002.svg-->
 											<span class="svg-icon svg-icon-2">

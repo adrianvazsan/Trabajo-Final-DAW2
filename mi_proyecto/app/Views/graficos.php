@@ -158,7 +158,7 @@ License: For each use you must have a valid license purchased only from above li
 								<!--Sección de grafica-->
 								
 								<div class="menu-item">
-									<a class="menu-link" href="<?= base_url('grafica') ?>">
+									<a class="menu-link active" href="<?= base_url('grafica') ?>">
 										<span class="menu-icon">
 											<!--begin::Svg Icon | path: icons/duotune/art/art002.svg-->
 											<span class="svg-icon svg-icon-2">

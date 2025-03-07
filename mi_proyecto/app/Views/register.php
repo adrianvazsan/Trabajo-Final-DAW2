@@ -41,6 +41,7 @@ License: For each use you must have a valid license purchased only from above li
 			<!--begin::Authentication - Sign-up -->
 			<div class="d-flex flex-column flex-column-fluid bgi-position-y-bottom position-x-center bgi-no-repeat bgi-size-contain bgi-attachment-fixed" style="background-image: url('<?= base_url('assets/media/illustrations/sketchy-1/14.png')?>')">
 				<!--begin::Content-->
+				<div class="d-flex flex-center flex-column flex-column-fluid p-10 pb-lg-20">
 						<?php if (session()->has('success')): ?>
 							<div 
 							class="alert alert-success alert-dismissible fade show position-fixed top-0 end-0 m-3" 
@@ -66,11 +67,11 @@ License: For each use you must have a valid license purchased only from above li
                                 <?= $validation->listErrors() ?>
                             </div>
                         <?php endif; ?>
-					<!--begin::Logo-->
+				
+					<!--end::Logo-->
 					<a href="../../demo1/dist/index.html" class="mb-12">
 						<img alt="Logo" src="<?= base_url("assets/media/logos/logo-coffe.png")?>" class="h-150px" />
 					</a>
-					<!--end::Logo-->
 					<!--begin::Wrapper-->
 					<div class="w-lg-600px bg-body rounded shadow-sm p-10 p-lg-15 mx-auto">
 						<!--begin::Form-->
@@ -85,17 +86,7 @@ License: For each use you must have a valid license purchased only from above li
 								<a href="<?= base_url("login")?>" class="link-primary fw-bolder">Access here</a></div>
 								<!--end::Link-->
 							</div>
-							<!--end::Heading-->
-							<!--begin::Action-->
-							<button type="button" class="btn btn-light-primary fw-bolder w-100 mb-10">
-							<img alt="Logo" src="<?= base_url("assets/media/svg/brand-logos/google-icon.svg")?>" class="h-20px me-3" />Sign in with Google</button>
-							<!--end::Action-->
-							<!--begin::Separator-->
-							<div class="d-flex align-items-center mb-10">
-								<div class="border-bottom border-gray-300 mw-50 w-100"></div>
-								<span class="fw-bold text-gray-400 fs-7 mx-2">OR</span>
-								<div class="border-bottom border-gray-300 mw-50 w-100"></div>
-							</div>
+						
 							<!--end::Separator-->
 							<!--begin::Input group-->
 							<div class="row fv-row mb-7">
@@ -183,6 +174,7 @@ License: For each use you must have a valid license purchased only from above li
 					</div>
 					<!--end::Wrapper-->
 				</div>
+			</div>
 				<!--end::Content-->
 				<!--begin::Footer-->
 				<div class="d-flex flex-center flex-column-auto p-10">

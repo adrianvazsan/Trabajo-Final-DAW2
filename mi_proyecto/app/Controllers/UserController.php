@@ -44,8 +44,8 @@ class UserController extends BaseController
         $archived = $this->request->getGet('archived') ?? 'all';
         $sort = $this->request->getGet('sort') ?? 'name'; // Nombre como columna por defecto
         $order = $this->request->getGet('order') ?? 'asc';
-        $perPage = $this->request->getGet('perPage') ?? 3;
-        $perPage = is_numeric($perPage) ? (int)$perPage : 3; // Validación
+        $perPage = $this->request->getGet('perPage') ?? 5;
+        $perPage = is_numeric($perPage) ? (int)$perPage : 5; // Validación
         $page = $this->request->getGet('page') ?: 1;
     
         // Validar columnas permitidas para ordenación

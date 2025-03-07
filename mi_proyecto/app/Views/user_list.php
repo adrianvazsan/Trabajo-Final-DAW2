@@ -108,7 +108,7 @@ License: For each use you must have a valid license purchased only from above li
 							
 								<!--Sección de Usuarios-->
 								<div class="menu-item">
-									<a class="menu-link" href="<?= base_url("users")?>">
+									<a class="menu-link active" href="<?= base_url("users")?>">
 										<span class="menu-icon">
 											<!--begin::Svg Icon | path: icons/duotune/art/art002.svg-->
 											<span class="svg-icon svg-icon-2">
@@ -472,57 +472,50 @@ License: For each use you must have a valid license purchased only from above li
     <div class="table-responsive">
         <table class="table align-middle table-row-dashed fs-6 gy-5" id="kt_customers_table">
             <thead>
-                <tr class="text-start text-gray-400 fw-bolder fs-7 text-uppercase gs-0">
-                    <th class="min-w-125px">
-                        <a href="<?= base_url('users?sort=name&order=' . ($sort === 'name' && $order === 'asc' ? 'desc' : 'asc')) ?>">
-                            Name
-                            <?php if ($sort === 'name'): ?>
-                                <span class="ms-2"><?= $order === 'asc' ? '<i class="fas fa-sort-up"></i>' : '<i class="fas fa-sort-down"></i>' ?></span>
-                            <?php endif; ?>
-                        </a>
-                    </th>
-                    <th class="min-w-125px">
-                        <a href="<?= base_url('users?sort=email&order=' . ($sort === 'email' && $order === 'asc' ? 'desc' : 'asc')) ?>">
-                            Email
-                            <?php if ($sort === 'email'): ?>
-                                <span class="ms-2"><?= $order === 'asc' ? '<i class="fas fa-sort-up"></i>' : '<i class="fas fa-sort-down"></i>' ?></span>
-                            <?php endif; ?>
-                        </a>
-                    </th>
-                    <th class="min-w-125px">
-                        <a href="<?= base_url('users?sort=number_phone&order=' . ($sort === 'number_phone' && $order === 'asc' ? 'desc' : 'asc')) ?>">
-                            Phone
-                            <?php if ($sort === 'number_phone'): ?>
-                                <span class="ms-2"><?= $order === 'asc' ? '<i class="fas fa-sort-up"></i>' : '<i class="fas fa-sort-down"></i>' ?></span>
-                            <?php endif; ?>
-                        </a>
-                    </th>
-                    <th class="min-w-125px">
-                        <a href="<?= base_url('users?sort=address&order=' . ($sort === 'address' && $order === 'asc' ? 'desc' : 'asc')) ?>">
-                            Address
-                            <?php if ($sort === 'address'): ?>
-                                <span class="ms-2"><?= $order === 'asc' ? '<i class="fas fa-sort-up"></i>' : '<i class="fas fa-sort-down"></i>' ?></span>
-                            <?php endif; ?>
-                        </a>
-                    </th>
-                    <th class="min-w-125px">
-                        <a href="<?= base_url('users?sort=password&order=' . ($sort === 'password' && $order === 'asc' ? 'desc' : 'asc')) ?>">
-                            Password
-                            <?php if ($sort === 'password'): ?>
-                                <span class="ms-2"><?= $order === 'asc' ? '<i class="fas fa-sort-up"></i>' : '<i class="fas fa-sort-down"></i>' ?></span>
-                            <?php endif; ?>
-                        </a>
-                    </th>
-                    <th class="min-w-125px">
-                        <a href="<?= base_url('users?sort=created_at&order=' . ($sort === 'created_at' && $order === 'asc' ? 'desc' : 'asc')) ?>">
-                            Date of creation
-                            <?php if ($sort === 'created_at'): ?>
-                                <span class="ms-2"><?= $order === 'asc' ? '<i class="fas fa-sort-up"></i>' : '<i class="fas fa-sort-down"></i>' ?></span>
-                            <?php endif; ?>
-                        </a>
-                    </th>
-                    <th class="text-end min-w-70px">Actions</th>
-                </tr>
+			<?php
+			// Obtener los parámetros actuales y conservarlos en la URL
+			$queryParams = $_GET;
+			$queryParams['sort'] = $sort;
+			$queryParams['order'] = ($order === 'asc' ? 'desc' : 'asc');
+			$queryString = http_build_query($queryParams);
+			?>
+
+			<tr class="text-start text-gray-400 fw-bolder fs-7 text-uppercase gs-0">
+				<th class="min-w-125px">
+					<a href="<?= base_url('users?' . http_build_query(array_merge($_GET, ['sort' => 'name', 'order' => $sort === 'name' && $order === 'asc' ? 'desc' : 'asc']))) ?>">
+						Name
+						<?php if ($sort === 'name'): ?>
+							<span class="ms-2"><?= $order === 'asc' ? '<i class="fas fa-sort-up"></i>' : '<i class="fas fa-sort-down"></i>' ?></span>
+						<?php endif; ?>
+					</a>
+				</th>
+				<th class="min-w-125px">
+					<a href="<?= base_url('users?' . http_build_query(array_merge($_GET, ['sort' => 'email', 'order' => $sort === 'email' && $order === 'asc' ? 'desc' : 'asc']))) ?>">
+						Email
+						<?php if ($sort === 'email'): ?>
+							<span class="ms-2"><?= $order === 'asc' ? '<i class="fas fa-sort-up"></i>' : '<i class="fas fa-sort-down"></i>' ?></span>
+						<?php endif; ?>
+					</a>
+				</th>
+				<th class="min-w-125px">
+					<a href="<?= base_url('users?' . http_build_query(array_merge($_GET, ['sort' => 'number_phone', 'order' => $sort === 'number_phone' && $order === 'asc' ? 'desc' : 'asc']))) ?>">
+						Phone
+						<?php if ($sort === 'number_phone'): ?>
+							<span class="ms-2"><?= $order === 'asc' ? '<i class="fas fa-sort-up"></i>' : '<i class="fas fa-sort-down"></i>' ?></span>
+						<?php endif; ?>
+					</a>
+				</th>
+				<th class="min-w-125px">
+					<a href="<?= base_url('users?' . http_build_query(array_merge($_GET, ['sort' => 'created_at', 'order' => $sort === 'created_at' && $order === 'asc' ? 'desc' : 'asc']))) ?>">
+						Date of creation
+						<?php if ($sort === 'created_at'): ?>
+							<span class="ms-2"><?= $order === 'asc' ? '<i class="fas fa-sort-up"></i>' : '<i class="fas fa-sort-down"></i>' ?></span>
+						<?php endif; ?>
+					</a>
+				</th>
+				<th class="text-end min-w-70px">Actions</th>
+			</tr>
+
             </thead>
             <tbody>
                 <?php foreach ($users as $user): ?>
