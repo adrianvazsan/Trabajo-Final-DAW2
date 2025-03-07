@@ -141,7 +141,7 @@ License: For each use you must have a valid license purchased only from above li
 								<!--Sección de Reseñas-->
 								<!--Sección de Calendario-->
 								<div class="menu-item">
-									<a class="menu-link" href="<?= base_url('calendar') ?>">
+									<a class="menu-link active" href="<?= base_url('calendar') ?>">
 										<span class="menu-icon">
 											<!--begin::Svg Icon | path: icons/duotune/art/art002.svg-->
 											<span class="svg-icon svg-icon-2">
@@ -310,6 +310,12 @@ License: For each use you must have a valid license purchased only from above li
 						<!--end::Container-->
 					</div>
 					<!--end::Header-->
+					<div class="post d-flex flex-column-fluid" id="kt_post">
+					<div id="kt_content_container" class="container-fluid">
+        <!--begin::Card-->
+        <div class="card">
+            <!--begin::Card header-->
+         
 					<!--begin::Content-->
 														<!--begin::Card header-->
 														<div class="card-header border-0 pt-6">
@@ -333,7 +339,8 @@ License: For each use you must have a valid license purchased only from above li
 									
 										</div>
 										<!--end::Card header-->
-										
+										    <!--begin::Container-->
+   
 										<div class="container mt-5">
        		 								<div id="calendar"></div>
     									</div>
@@ -481,7 +488,9 @@ License: For each use you must have a valid license purchased only from above li
 										</div>
 									</div>
 
-										
+									</div>
+
+							
 					<!--end::Content-->
 					<!--begin::Footer-->
 					<div class="footer py-4 d-flex flex-lg-column" id="kt_footer">
@@ -510,7 +519,10 @@ License: For each use you must have a valid license purchased only from above li
 						<!--end::Container-->
 					</div>
 					<!--end::Footer-->
+					</div>	
 				</div>
+				</div>
+			</div>
 				<!--end::Wrapper-->
 			</div>
 			<!--end::Page-->

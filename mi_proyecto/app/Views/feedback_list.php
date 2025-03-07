@@ -139,7 +139,7 @@ License: For each use you must have a valid license purchased only from above li
 								</div>
 								<!--Sección de Reseñas-->
 								<div class="menu-item">
-									<a class="menu-link" href="<?= base_url('feedback') ?>">
+									<a class="menu-link active" href="<?= base_url('feedback') ?>">
 										<span class="menu-icon">
 											<!--begin::Svg Icon | path: icons/duotune/art/art002.svg-->
 											<span class="svg-icon svg-icon-2">
@@ -464,6 +464,7 @@ License: For each use you must have a valid license purchased only from above li
 														<div class="table-responsive">
 															<table class="table align-middle table-row-dashed fs-6 gy-5" id="kt_customers_table">
 																<thead>
+																	
 																	<tr class="text-start text-gray-400 fw-bolder fs-7 text-uppercase gs-0">
 																		<th class="min-w-125px">
 																			<a href="<?= base_url('feedback?sort=name&order=' . ($sort === 'name' && $order === 'asc' ? 'desc' : 'asc')) ?>">
