@@ -40,30 +40,42 @@ class UserController extends BaseController
         ];
     
         // Capturar filtros desde la URL (GET)
+        $archived = $this->request->getGet('archived') ?? 'all';
         $search = $this->request->getGet('search');
-        $archived = $this->request->getGet('archived') ?? 'all'; // 'all' por defecto
-        $sort = $this->request->getGet('sort') ?? 'id';
+        $column = $this->request->getGet('column'); // Capturar filtro de columna
+        $sort = $this->request->getGet('sort') ?? 'name';
         $order = $this->request->getGet('order') ?? 'asc';
+        $perPage = $this->request->getGet('perPage') ?? 5;
+        $perPage = is_numeric($perPage) ? (int)$perPage : 5;
+        $page = $this->request->getGet('page') ?: 1;
     
-        // Configuración de la paginación
-        $perPage = 3;
-    
-        // Iniciar la consulta
-        $query = $userModel;
-    
-        // Aplicar filtro de "archivados"
-        if ($archived === '0') {
-            $query = $query->where('archivado', 0); // Usuarios activos
-        } elseif ($archived === '1') {
-            $query = $query->where('archivado', 1); // Usuarios archivados
+        // Validar columnas permitidas para ordenación y búsqueda
+        $allowedColumns = ['id', 'name', 'email', 'created_at', 'number_phone'];
+        if (!in_array($sort, $allowedColumns)) {
+            $sort = 'name';
+        }
+        if (!in_array($column, $allowedColumns)) {
+            $column = null; // Si la columna no es válida, no aplicamos filtro de columna
         }
     
-        // Aplicar búsqueda dentro del filtro seleccionado
-        if (!empty($search)) {
+        // Iniciar la consulta y aplicar el filtro de archivados primero
+        $query = $userModel;
+        if ($archived === '0') {
+            $query = $query->where('archivado', 0);
+        } elseif ($archived === '1') {
+            $query = $query->where('archivado', 1);
+        }
+    
+        // Aplicar búsqueda en una columna específica si se seleccionó
+        if (!empty($search) && $column) {
+            $query = $query->like($column, $search);
+        } elseif (!empty($search)) {
+            // Si no se seleccionó columna, buscar en todas
             $query = $query->groupStart()
                            ->like('id', $search)
                            ->orLike('name', $search)
                            ->orLike('email', $search)
+                           ->orLike('number_phone', $search)
                            ->orLike('created_at', $search)
                            ->groupEnd();
         }
@@ -72,23 +84,24 @@ class UserController extends BaseController
         $query = $query->orderBy($sort, $order);
     
         // Obtener usuarios paginados
-        $data["users"] = $query->paginate($perPage);
+        $data["users"] = $query->paginate($perPage, 'default', $page);
         $data["pager"] = $userModel->pager;
+    
+        // Pasar los filtros y datos a la vista
         $data["filters"] = [
             'search' => $search,
             'archived' => $archived,
-           
+            'column' => $column, // Pasar filtro de columna a la vista
         ];
         $data["order"] = $order;
         $data["sort"] = $sort;
+        $data["perPage"] = $perPage;
+        $data["page"] = $page;
+    
         return view('user_list', $data);
     }
     
-
-
-    
-    
-    
+   
     public function saveUser($id = null)
     {
         $session = session();
@@ -192,22 +205,72 @@ class UserController extends BaseController
 public function exportCSV()
 {
     $userModel = new UserModel();
-    $users = $userModel->findAll();
+
+    // Capturar los filtros de la URL (GET)
+    $search = $this->request->getGet('search');
+    $archived = $this->request->getGet('archived') ?? 'all';
+    $sort = $this->request->getGet('sort') ?? 'name';
+    $order = $this->request->getGet('order') ?? 'asc';
+    $column = $this->request->getGet('column'); // Filtrar por columna específica
+
+    // Definir las columnas permitidas
+    $allowedColumns = ['id', 'name', 'email', 'created_at', 'number_phone'];
+    if (!in_array($sort, $allowedColumns)) {
+        $sort = 'name'; // Si la columna de orden no es válida, usar 'name' por defecto
+    }
+    if (!in_array($column, $allowedColumns)) {
+        $column = null; // Si la columna no es válida, no aplicar filtro por columna específica
+    }
+
+    // Construir la consulta con los filtros
+    $query = $userModel;
+
+    // Filtrar por estado de archivado
+    if ($archived === '0') {
+        $query = $query->where('archivado', 0);
+    } elseif ($archived === '1') {
+        $query = $query->where('archivado', 1);
+    }
+
+    // Aplicar búsqueda en una columna específica si se seleccionó
+    if (!empty($search) && $column) {
+        $query = $query->like($column, $search);
+    } elseif (!empty($search)) {
+        // Si no hay columna específica, buscar en todas
+        $query = $query->groupStart()
+                       ->like('id', $search)
+                       ->orLike('name', $search)
+                       ->orLike('email', $search)
+                       ->orLike('number_phone', $search)
+                       ->orLike('created_at', $search)
+                       ->groupEnd();
+    }
+
+    // Aplicar ordenación
+    $query = $query->orderBy($sort, $order);
+
+    // Obtener los datos filtrados (sin paginación)
+    $users = $query->findAll();
+
+    // Verificar que los datos filtrados sean correctos antes de la exportación
+    if (empty($users)) {
+        exit('No hay datos para exportar con los filtros aplicados.');
+    }
 
     // Nombre del archivo CSV
     $filename = 'users_' . date('Ymd') . '.csv';
 
     // Establecer las cabeceras para la descarga del archivo
-    header('Content-Type: text/csv');
-    header('Content-Disposition: attachment;filename="' . $filename . '"');
+    header('Content-Type: text/csv; charset=UTF-8');
+    header('Content-Disposition: attachment; filename="' . $filename . '"');
 
     // Abrir la salida estándar como un archivo
     $output = fopen('php://output', 'w');
 
     // Escribir la fila de cabecera
-    fputcsv($output, ['ID', 'Name', 'Email', 'Number_phone', 'reated_at', 'ID Role']);
+    fputcsv($output, ['ID', 'Name', 'Email', 'Number_phone', 'Created_at', 'ID Role']);
 
-    // Escribir los datos de los usuarios
+    // Escribir los datos filtrados
     foreach ($users as $user) {
         fputcsv($output, [
             $user['id'],
@@ -223,5 +286,8 @@ public function exportCSV()
     fclose($output);
     exit;
 }
+
+
+
 
 }

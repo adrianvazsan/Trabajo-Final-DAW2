@@ -49,7 +49,10 @@ $routes->get('profiles', 'ProfileController::index');
 $routes->post('profiles/update/(:num)', 'ProfileController::update/$1');
 $routes->add('profiles/saveUser', 'ProfileController::saveUser');
 
-
+// Rutas para proveedores
+$routes->get('proveedores', 'ProveedoresController::index'); // Listar proveedores
+$routes->get('products/export', 'ProveedoresController::export'); // Exportar productos
+$routes->get('products', 'ProveedoresController::filter'); // Filtrar productos
 
 
 

@@ -51,7 +51,8 @@ class FeedbackController extends BaseController
         $order = $this->request->getGet('order') ?? 'asc';
     
         // Configuración de la paginación
-        $perPage = 10;
+        $perPage = $this->request->getGet('perPage') ?? 10;
+        $perPage = is_numeric($perPage) ? (int)$perPage : 10;
     
         // Aplicar filtros
         $query = $feedbackModel;
@@ -73,6 +74,7 @@ class FeedbackController extends BaseController
         $data["filters"] = ['search' => $search]; // Pasamos el filtro de búsqueda a la vista
         $data["order"] = $order; // Pasamos el orden a la vista
         $data["sort"] = $sort; // Pasamos la columna de orden a la vista
+        $data["perPage"]   = $perPage;
         return view('feedback_list', $data);
     }
     
@@ -176,4 +178,5 @@ class FeedbackController extends BaseController
     fclose($output);
     exit;
     }
+    
 }

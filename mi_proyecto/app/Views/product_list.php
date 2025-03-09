@@ -45,6 +45,21 @@ License: For each use you must have a valid license purchased only from above li
             padding: 5px;
             box-sizing: border-box;
         }
+				.breadcrumb {
+			background-color: #f8f9fa;
+			padding: 8px 16px;
+			border-radius: 5px;
+		}
+
+		.breadcrumb-item a {
+			text-decoration: none;
+			color: #007bff;
+		}
+
+		.breadcrumb-item a:hover {
+			text-decoration: underline;
+		}
+
     </style>
 	</head>
 	<!--end::Head-->
@@ -108,7 +123,7 @@ License: For each use you must have a valid license purchased only from above li
 								</div>
 								<!--Sección de Reservas-->
 								<div class="menu-item">
-									<a class="menu-link" href="<?= base_url("products")?>">
+									<a class="menu-link active" href="<?= base_url("products")?>">
 										<span class="menu-icon">
 											<!--begin::Svg Icon | path: icons/duotune/art/art002.svg-->
 											<span class="svg-icon svg-icon-2">
@@ -120,6 +135,23 @@ License: For each use you must have a valid license purchased only from above li
 											<!--end::Svg Icon-->
 										</span>
 										<span class="menu-title">Products</span>
+									</a>
+								</div>
+
+								<!--Sección de Proveedores-->
+                                <div class="menu-item">
+									<a class="menu-link " href="<?= base_url("proveedores")?>">
+										<span class="menu-icon">
+											<!--begin::Svg Icon | path: icons/duotune/art/art002.svg-->
+											<span class="svg-icon svg-icon-2">
+												<svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
+													<path opacity="0.3" d="M8.9 21L7.19999 22.6999C6.79999 23.0999 6.2 23.0999 5.8 22.6999L4.1 21H8.9ZM4 16.0999L2.3 17.8C1.9 18.2 1.9 18.7999 2.3 19.1999L4 20.9V16.0999ZM19.3 9.1999L15.8 5.6999C15.4 5.2999 14.8 5.2999 14.4 5.6999L9 11.0999V21L19.3 10.6999C19.7 10.2999 19.7 9.5999 19.3 9.1999Z" fill="black" />
+													<path d="M21 15V20C21 20.6 20.6 21 20 21H11.8L18.8 14H20C20.6 14 21 14.4 21 15ZM10 21V4C10 3.4 9.6 3 9 3H4C3.4 3 3 3.4 3 4V21C3 21.6 3.4 22 4 22H9C9.6 22 10 21.6 10 21ZM7.5 18.5C7.5 19.1 7.1 19.5 6.5 19.5C5.9 19.5 5.5 19.1 5.5 18.5C5.5 17.9 5.9 17.5 6.5 17.5C7.1 17.5 7.5 17.9 7.5 18.5Z" fill="black" />
+												</svg>
+											</span>
+											<!--end::Svg Icon-->
+										</span>
+										<span class="menu-title">Suppliers</span>
 									</a>
 								</div>
 								<!--Sección de Reseñas-->
@@ -310,9 +342,21 @@ License: For each use you must have a valid license purchased only from above li
 						<!--end::Container-->
 					</div>
 					<!--end::Header-->
+					<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">Dashboard</li>
+        <li class="breadcrumb-item"><a href="<?= base_url('products') ?>">Products</a></li>  
+    </ol>
+</nav>
+
 					<!--begin::Content-->
-														<!--begin::Card header-->
-														<div class="card-header border-0 pt-6">
+					<div class="post d-flex flex-column-fluid" id="kt_post">
+							<!--begin::Container-->
+							<div id="kt_content_container" class="container-fluid">
+								<!--begin::Card-->
+								<div class="card">
+									<!--begin::Card header-->
+									<div class="card-header border-0 pt-6">
 										<!--begin::Card title-->
 										<div class="card-title">
 											
@@ -351,7 +395,6 @@ License: For each use you must have a valid license purchased only from above li
 															<!--begin::Input-->
 															<select class="form-select form-select-solid fw-bolder" data-kt-select2="true" data-placeholder="Select option" data-allow-clear="true" data-kt-customer-table-filter="month" data-dropdown-parent="#kt-toolbar-filter">
 																<option></option>
-																<option value="ID">ID</option>
 																<option value="nam">Name of the Product</option>
 																<option value="amo">Amount</option>
 																<option value="ori">Product Origin</option>
@@ -399,120 +442,162 @@ License: For each use you must have a valid license purchased only from above li
 									<!--end::Card header-->
 									<!--begin::Card body-->
 									
-											<?php if (session()->getFlashdata('success')): ?>
-												<div class="alert alert-success">
-													<?= session()->getFlashdata('success') ?>
-												</div>
-											<?php endif; ?>
+									<?php if (session()->has('success')): ?>
+										<div 
+										class="alert alert-success alert-dismissible fade show position-fixed top-0 end-0 m-3" 
+										role="alert" 
+										style="z-index: 9999;" 
+										id="alert-temp"
+										>
+											<?= session('success') ?>
+											<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+										</div>
+
+										<script>
+											// Desaparece automáticamente tras 3 segundos
+											setTimeout(() => {
+												const alert = document.getElementById('alert-temp');
+												if (alert) {
+													alert.remove();
+												}
+											}, 3000);
+										</script>
+									<?php endif; ?>
 
                                				 <div class="card-body pt-0">
-											<?php if (session()->get('id_rol') == 1): // Solo los administradores pueden ver estos botones ?>
-												<a href="<?= base_url('products/save') ?>" class="btn btn-primary mb-3">
-													<i class="fas fa-plus"></i> Create Product
-												</a>
-											<?php endif; ?>
+												<?php if (session()->get('id_rol') == 1): // Solo los administradores pueden ver estos botones ?>
+													<a href="<?= base_url('products/save') ?>" class="btn btn-primary mb-3">
+														<i class="fas fa-plus"></i> Create Product
+													</a>
+												<?php endif; ?>
 
 												<?php if (!empty($products) && is_array($products)): ?>
-													<div class="table-responsive">
-														<table class="table align-middle table-row-dashed fs-6 gy-5" id="kt_customers_table">
-															<thead>
-															<tr class="text-start text-gray-400 fw-bolder fs-7 text-uppercase gs-0">
-																<th class="min-w-125px">
-																	<a href="<?= base_url('products?sort=id&order=' . ($sort === 'id' && $order === 'asc' ? 'desc' : 'asc')) ?>">
-																		ID
-																		<?php if ($sort === 'id'): ?>
-																			<span class="ms-2"><?= $order === 'asc' ? '<i class="fas fa-sort-up"></i>' : '<i class="fas fa-sort-down"></i>' ?></span>
-																		<?php endif; ?>
-																	</a>
-																</th>
-																<th class="min-w-125px">
-																	<a href="<?= base_url('products?sort=product_name&order=' . ($sort === 'product_name' && $order === 'asc' ? 'desc' : 'asc')) ?>">
-																		Name of the Product
-																		<?php if ($sort === 'product_name'): ?>
-																			<span class="ms-2"><?= $order === 'asc' ? '<i class="fas fa-sort-up"></i>' : '<i class="fas fa-sort-down"></i>' ?></span>
-																		<?php endif; ?>
-																	</a>
-																</th>
-																<th class="min-w-125px">
-																	<a href="<?= base_url('products?sort=amount&order=' . ($sort === 'amount' && $order === 'asc' ? 'desc' : 'asc')) ?>">
-																		Amount
-																		<?php if ($sort === 'amount'): ?>
-																			<span class="ms-2"><?= $order === 'asc' ? '<i class="fas fa-sort-up"></i>' : '<i class="fas fa-sort-down"></i>' ?></span>
-																		<?php endif; ?>
-																	</a>
-																</th>
-																<th class="min-w-125px">
-																	<a href="<?= base_url('products?sort=origin_product&order=' . ($sort === 'origin_product' && $order === 'asc' ? 'desc' : 'asc')) ?>">
-																		Product Origin
-																		<?php if ($sort === 'origin_product'): ?>
-																			<span class="ms-2"><?= $order === 'asc' ? '<i class="fas fa-sort-up"></i>' : '<i class="fas fa-sort-down"></i>' ?></span>
-																		<?php endif; ?>
-																	</a>
-																</th>
-																<th class="min-w-125px">
-																	<a href="<?= base_url('products?sort=type_product&order=' . ($sort === 'type_product' && $order === 'asc' ? 'desc' : 'asc')) ?>">
-																		Product Type
-																		<?php if ($sort === 'type_product'): ?>
-																			<span class="ms-2"><?= $order === 'asc' ? '<i class="fas fa-sort-up"></i>' : '<i class="fas fa-sort-down"></i>' ?></span>
-																		<?php endif; ?>
-																	</a>
-																</th>
-																<th class="min-w-125px">
-																	<a href="<?= base_url('products?sort=created_at&order=' . ($sort === 'created_at' && $order === 'asc' ? 'desc' : 'asc')) ?>">
-																		Date of creation
-																		<?php if ($sort === 'created_at'): ?>
-																			<span class="ms-2"><?= $order === 'asc' ? '<i class="fas fa-sort-up"></i>' : '<i class="fas fa-sort-down"></i>' ?></span>
-																		<?php endif; ?>
-																	</a>
-																</th>
-																<th class="text-end min-w-70px">Acciones</th>
-															</tr>
-
-													
-															</thead>
-															<tbody>
-																<?php foreach ($products as $product): ?>
-																	<tr>
-																		<td><?= esc($product['id']) ?></td>
-																		<td><?= esc($product['product_name']) ?></td>
-																		<td><?= esc($product['amount']) ?></td>
-																		<td><?= esc($product['origin_product']) ?></td>
-																		<td><?= esc($product['type_product']) ?></td>
-																		<td><?= esc($product['created_at']) ?></td>
-																		<td class="text-center">
-																			<?php if (session()->get('id_rol') == 1): // Solo los administradores pueden ver estos botones ?>
-																				<a href="<?= base_url('products/save/' . $product['id']) ?>" class="btn btn-warning btn-sm">
-																					<i class="fas fa-edit"></i> Edit
-																				</a>
-																				<a href="<?= base_url('products/delete/') . esc($product['id']) ?>" 
-																				class="btn btn-danger btn-sm"
-																				onclick="return confirm('Are you sure to remove this product?');">
-																					<i class="fas fa-trash"></i> Delete
-																				</a>
-																			<?php endif; ?>
-																		</td>
-
+													<div id="product-list">
+														<div class="table-responsive">
+															<table class="table align-middle table-row-dashed fs-6 gy-5" id="kt_customers_table">
+																<thead>
+																	<tr class="text-start text-gray-400 fw-bolder fs-7 text-uppercase gs-0">
+																		<th class="min-w-125px">
+																			<a href="<?= base_url('products?sort=product_name&order=' . ($sort === 'product_name' && $order === 'asc' ? 'desc' : 'asc')) ?>">
+																				Name of the Product
+																				<?php if ($sort === 'product_name'): ?>
+																					<span class="ms-2"><?= $order === 'asc' ? '<i class="fas fa-sort-up"></i>' : '<i class="fas fa-sort-down"></i>' ?></span>
+																				<?php endif; ?>
+																			</a>
+																		</th>
+																		<th class="min-w-125px">
+																			<a href="<?= base_url('products?sort=amount&order=' . ($sort === 'amount' && $order === 'asc' ? 'desc' : 'asc')) ?>">
+																				Amount
+																				<?php if ($sort === 'amount'): ?>
+																					<span class="ms-2"><?= $order === 'asc' ? '<i class="fas fa-sort-up"></i>' : '<i class="fas fa-sort-down"></i>' ?></span>
+																				<?php endif; ?>
+																			</a>
+																		</th>
+																		<th class="min-w-125px">
+																			<a href="<?= base_url('products?sort=origin_product&order=' . ($sort === 'origin_product' && $order === 'asc' ? 'desc' : 'asc')) ?>">
+																				Product Origin
+																				<?php if ($sort === 'origin_product'): ?>
+																					<span class="ms-2"><?= $order === 'asc' ? '<i class="fas fa-sort-up"></i>' : '<i class="fas fa-sort-down"></i>' ?></span>
+																				<?php endif; ?>
+																			</a>
+																		</th>
+																		<th class="min-w-125px">
+																			<a href="<?= base_url('products?sort=type_product&order=' . ($sort === 'type_product' && $order === 'asc' ? 'desc' : 'asc')) ?>">
+																				Product Type
+																				<?php if ($sort === 'type_product'): ?>
+																					<span class="ms-2"><?= $order === 'asc' ? '<i class="fas fa-sort-up"></i>' : '<i class="fas fa-sort-down"></i>' ?></span>
+																				<?php endif; ?>
+																			</a>
+																		</th>
+																		<th class="min-w-125px">
+																			<a href="<?= base_url('products?sort=created_at&order=' . ($sort === 'created_at' && $order === 'asc' ? 'desc' : 'asc')) ?>">
+																				Date of creation
+																				<?php if ($sort === 'created_at'): ?>
+																					<span class="ms-2"><?= $order === 'asc' ? '<i class="fas fa-sort-up"></i>' : '<i class="fas fa-sort-down"></i>' ?></span>
+																				<?php endif; ?>
+																			</a>
+																		</th>
+																		<th class="text-end min-w-70px">Acciones</th>
 																	</tr>
-																<?php endforeach; ?>
-															</tbody>
-														</table>
+																</thead>
+																<tbody>
+																	<?php foreach ($products as $product): ?>
+																		<tr>
+																		<td><?= esc(!empty($product['product_name']) ? $product['product_name'] : '-') ?></td>
+																		<td><?= esc(!empty($product['amount']) ? $product['amount'] : '-') ?></td>
+																		<td><?= esc(!empty($product['origin_product']) ? $product['origin_product'] : '-') ?></td>
+																		<td><?= esc(!empty($product['type_product']) ? $product['type_product'] : '-') ?></td>
+																		<td><?= esc(!empty($product['created_at']) ? $product['created_at'] : '-') ?></td>
+
+																			<td class="text-center">
+																				<?php if (session()->get('id_rol') == 1): ?>
+																					<a href="<?= base_url('products/save/' . $product['id']) ?>" class="btn btn-warning btn-sm">
+																						<i class="fas fa-edit"></i> Edit
+																					</a>
+																					<a href="<?= base_url('products/delete/') . esc($product['id']) ?>" 
+																					class="btn btn-danger btn-sm"
+																					onclick="return confirm('Are you sure to remove this product?');">
+																						<i class="fas fa-trash"></i> Delete
+																					</a>
+																				<?php endif; ?>
+																			</td>
+																		</tr>
+																	<?php endforeach; ?>
+																</tbody>
+															</table>
+														</div>
+														<label for="perPage">Products per page:</label>
+														<div class="mb-10">
+															<select id="perPage" class="form-select form-select-sm w-auto">
+																<option value="3" <?= ($perPage == 3) ? 'selected' : '' ?>>3</option>
+																<option value="5" <?= ($perPage == 5) ? 'selected' : '' ?>>5</option>
+																<option value="10" <?= ($perPage == 10) ? 'selected' : '' ?>>10</option>
+															</select>
+														</div>
+
+														<div class="d-flex justify-content-center">
+															<?= $pager->links() ?>
+														</div>
 													</div>
-													<div class="d-flex justify-content-center">
-														<?= $pager->links() ?>
-													</div>
+
 												<?php else: ?>
 													<p class="text-center text-muted">There are no products registered.</p>
 												<?php endif; ?>
 											</div>
-										</div>
+								</div>
 											<!--end::Table body-->
-
+							</div>
 										<!--end::Table-->
 									
-									<!--end::Card body-->
+					</div>			<!--end::Card body-->
 					<!--end::Content-->
 					<!--begin::Footer-->
-
+					<div class="footer py-4 d-flex flex-lg-column" id="kt_footer">
+						<!--begin::Container-->
+						<div class="container-fluid d-flex flex-column flex-md-row align-items-center justify-content-between">
+							<!--begin::Copyright-->
+							<div class="text-dark order-2 order-md-1">
+								<span class="text-muted fw-bold me-1">2021©</span>
+								<a href="https://keenthemes.com" target="_blank" class="text-gray-800 text-hover-primary">Keenthemes</a>
+							</div>
+							<!--end::Copyright-->
+							<!--begin::Menu-->
+							<ul class="menu menu-gray-600 menu-hover-primary fw-bold order-1">
+								<li class="menu-item">
+									<a href="https://keenthemes.com" target="_blank" class="menu-link px-2">About</a>
+								</li>
+								<li class="menu-item">
+									<a href="https://keenthemes.com/support" target="_blank" class="menu-link px-2">Support</a>
+								</li>
+								<li class="menu-item">
+									<a href="https://1.envato.market/EA4JP" target="_blank" class="menu-link px-2">Purchase</a>
+								</li>
+							</ul>
+							<!--end::Menu-->
+						</div>
+						<!--end::Container-->
+					</div>
+					<!--end::Footer-->
 					<!--end::Footer-->
 				</div>
 				<!--end::Wrapper-->
@@ -520,10 +605,13 @@ License: For each use you must have a valid license purchased only from above li
 			<!--end::Page-->
 		</div>
 		<!--end::Root-->
+		
 		<!--begin::Drawers-->
 		<!--begin::Activities drawer-->
 		<div id="kt_activities" class="bg-body" data-kt-drawer="true" data-kt-drawer-name="activities" data-kt-drawer-activate="true" data-kt-drawer-overlay="true" data-kt-drawer-width="{default:'300px', 'lg': '900px'}" data-kt-drawer-direction="end" data-kt-drawer-toggle="#kt_activities_toggle" data-kt-drawer-close="#kt_activities_close">
-			<div class="card shadow-none rounded-0">
+			
+		
+		<div class="card shadow-none rounded-0">
 				<!--begin::Header-->
 				<div class="card-header" id="kt_activities_header">
 					<h3 class="card-title fw-bolder text-dark">Activity Logs</h3>
@@ -3679,6 +3767,45 @@ License: For each use you must have a valid license purchased only from above li
 			<!--end::Svg Icon-->
 		</div>
 		<!--end::Scrolltop-->
+		<script>
+			document.addEventListener('change', function(e) {
+				if (e.target && e.target.id === 'perPage') {
+					let perPage = e.target.value;
+					// Construir la URL con el parámetro perPage
+					let requestUrl = window.location.pathname + '?perPage=' + perPage;
+					
+					fetch(requestUrl, {
+						headers: {
+							'X-Requested-With': 'XMLHttpRequest'
+						}
+					})
+					.then(response => response.text())
+					.then(html => {
+						// Crear un contenedor temporal para parsear la respuesta HTML
+						let tempDiv = document.createElement('div');
+						tempDiv.innerHTML = html;
+						
+						// Extraer el contenido del contenedor con id "product-list" de la respuesta
+						let newContent = tempDiv.querySelector('#product-list');
+						if (newContent) {
+							document.getElementById('product-list').innerHTML = newContent.innerHTML;
+						}
+						
+						// Actualizar la URL sin recargar la página
+						let currentUrl = new URL(window.location.href);
+						currentUrl.searchParams.set('perPage', perPage);
+						window.history.pushState({}, '', currentUrl);
+						
+						// Opcional: asegurarse de que el select mantiene el valor seleccionado
+						document.getElementById('perPage').value = perPage;
+					})
+					.catch(error => {
+						console.error('Error al cargar los datos:', error);
+					});
+				}
+			});
+		</script>
+
 		<!--end::Main-->
 		<script>var hostUrl = "assets/";</script>
 		<!--begin::Javascript-->
